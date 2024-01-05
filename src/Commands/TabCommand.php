@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Fintech\Tab\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class TabCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'tab';
 
     public $description = 'My command';
 

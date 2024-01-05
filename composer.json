@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "fintech/tab",
+    "description": "This is my package tab",
     "keywords": [
-        ":vendor_name",
+        "fintech",
         "laravel",
-        ":package_slug"
+        "tab"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/fintech/tab",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Mohammad Hafijul Islam",
+            "email": "hafijul233@gmail.com",
             "role": "Developer"
         }
     ],
@@ -35,12 +35,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/"
+            "Fintech\\Tab\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "Fintech\\Tab\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -60,10 +60,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Fintech\\Tab\\TabServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "Tab": "Fintech\\Tab\\Facades\\Tab"
             }
         }
     },
