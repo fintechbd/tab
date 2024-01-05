@@ -2,9 +2,9 @@
 
 namespace Fintech\Tab\Tests;
 
+use Fintech\Tab\TabServiceProvider;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Fintech\Tab\TabServiceProvider;
 
 class TestCase extends Orchestra
 {

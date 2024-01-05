@@ -2,9 +2,9 @@
 
 namespace Fintech\Tab;
 
-use Illuminate\Support\ServiceProvider;
 use Fintech\Tab\Commands\InstallCommand;
 use Fintech\Tab\Commands\TabCommand;
+use Illuminate\Support\ServiceProvider;
 
 class TabServiceProvider extends ServiceProvider
 {
