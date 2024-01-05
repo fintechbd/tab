@@ -24,6 +24,17 @@ return [
 
     'root_prefix' => 'test/',
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | PayBill Model
+    |--------------------------------------------------------------------------
+    |
+    | This value will be used to across system where model is needed
+    */
+    'pay_bill_model' => \Fintech\Tab\Models\PayBill::class,
+
+
     //** Model Config Point Do not Remove **//
 
     /*
@@ -35,6 +46,10 @@ return [
     */
 
     'repositories' => [
+        \Fintech\Tab\Interfaces\PayBillRepository::class => \Fintech\Tab\Repositories\Eloquent\PayBillRepository::class,
+
+        \Fintech\Tab\Interfaces\PayBillRepository::class => \Fintech\Tab\Repositories\Eloquent\PayBillRepository::class,
+
         //** Repository Binding Config Point Do not Remove **//
     ],
 
