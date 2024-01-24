@@ -132,7 +132,7 @@ class PayBillSeeder extends Seeder
                 'service_id' => $service->getKey(),
                 'service_slug' => $service->service_slug,
                 'source_country_id' => [39, 133, 192, 231],
-                'destination_country_id' => [19, 39, 101, 132, 133, 167, 192, 231],
+                'destination_country_id' => [19],
                 'service_vendor_id' => 1,
                 'service_stat_data' => [
                     [
