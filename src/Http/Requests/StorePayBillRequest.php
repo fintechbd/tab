@@ -8,7 +8,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StorePayBillRequest extends FormRequest
 {
-
     /**
      * Determine if the user is authorized to make this request.
      */

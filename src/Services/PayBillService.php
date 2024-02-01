@@ -2,27 +2,23 @@
 
 namespace Fintech\Tab\Services;
 
-
 use Fintech\Tab\Interfaces\PayBillRepository;
 use Fintech\Transaction\Facades\Transaction;
 
 /**
  * Class PayBillService
- * @package Fintech\Tab\Services
- *
  */
 class PayBillService
 {
     /**
      * PayBillService constructor.
-     * @param PayBillRepository $payBillRepository
      */
-    public function __construct(PayBillRepository $payBillRepository) {
+    public function __construct(PayBillRepository $payBillRepository)
+    {
         $this->payBillRepository = $payBillRepository;
     }
 
     /**
-     * @param array $filters
      * @return mixed
      */
     public function list(array $filters = [])
@@ -65,6 +61,7 @@ class PayBillService
     {
         return $this->payBillRepository->create($filters);
     }
+
     /**
      * @return int[]
      */

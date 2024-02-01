@@ -1,24 +1,25 @@
 <?php
 
 namespace Fintech\Tab\Http\Controllers;
+
 use Exception;
 use Fintech\Auth\Facades\Auth;
 use Fintech\Business\Facades\Business;
 use Fintech\Core\Enums\Auth\RiskProfile;
 use Fintech\Core\Enums\Auth\SystemRole;
 use Fintech\Core\Enums\Transaction\OrderStatus;
-use Fintech\Core\Exceptions\StoreOperationException;
-use Fintech\Core\Exceptions\UpdateOperationException;
 use Fintech\Core\Exceptions\DeleteOperationException;
 use Fintech\Core\Exceptions\RestoreOperationException;
+use Fintech\Core\Exceptions\StoreOperationException;
+use Fintech\Core\Exceptions\UpdateOperationException;
 use Fintech\Core\Traits\ApiResponseTrait;
 use Fintech\Tab\Facades\Tab;
-use Fintech\Tab\Http\Resources\PayBillResource;
-use Fintech\Tab\Http\Resources\PayBillCollection;
 use Fintech\Tab\Http\Requests\ImportPayBillRequest;
+use Fintech\Tab\Http\Requests\IndexPayBillRequest;
 use Fintech\Tab\Http\Requests\StorePayBillRequest;
 use Fintech\Tab\Http\Requests\UpdatePayBillRequest;
-use Fintech\Tab\Http\Requests\IndexPayBillRequest;
+use Fintech\Tab\Http\Resources\PayBillCollection;
+use Fintech\Tab\Http\Resources\PayBillResource;
 use Fintech\Transaction\Facades\Transaction;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
@@ -27,15 +28,13 @@ use Illuminate\Support\Facades\DB;
 
 /**
  * Class PayBillController
- * @package Fintech\Tab\Http\Controllers
  *
  * @lrd:start
  * This class handle create, display, update, delete & restore
  * operation related to PayBill
- * @lrd:end
  *
+ * @lrd:end
  */
-
 class PayBillController extends Controller
 {
     use ApiResponseTrait;
@@ -45,10 +44,8 @@ class PayBillController extends Controller
      * Return a listing of the *PayBill* resource as collection.
      *
      * *```paginate=false``` returns all resource as list not pagination*
-     * @lrd:end
      *
-     * @param IndexPayBillRequest $request
-     * @return PayBillCollection|JsonResponse
+     * @lrd:end
      */
     public function index(IndexPayBillRequest $request): PayBillCollection|JsonResponse
     {
@@ -72,10 +69,8 @@ class PayBillController extends Controller
     /**
      * @lrd:start
      * Create a new *PayBill* resource in storage.
-     * @lrd:end
      *
-     * @param StorePayBillRequest $request
-     * @return JsonResponse
+     * @lrd:end
      */
     public function store(StorePayBillRequest $request): JsonResponse
     {
@@ -131,7 +126,7 @@ class PayBillController extends Controller
 
                 $payBill = Tab::payBill()->create($inputs);
 
-                if (!$payBill) {
+                if (! $payBill) {
                     throw (new StoreOperationException)->setModel(config('fintech.tab.pay_bill_model'));
                 }
                 $order_data = $payBill->order_data;
@@ -166,17 +161,19 @@ class PayBillController extends Controller
                 Tab::payBill()->update($payBill->getKey(), ['order_data' => $order_data, 'order_number' => $order_data['purchase_number']]);
                 Transaction::orderQueue()->removeFromQueueUserWise($user_id ?? $depositor->getKey());
                 DB::commit();
+
                 return $this->created([
                     'message' => __('core::messages.resource.created', ['model' => 'Pay Bill']),
                     'id' => $payBill->getKey(),
                     'spent' => $userUpdatedBalance['spent_amount'],
-                 ]);
+                ]);
             } else {
                 throw new Exception('Your another order is in process...!');
             }
         } catch (Exception $exception) {
             Transaction::orderQueue()->removeFromQueueUserWise($user_id ?? $depositor->getKey());
             DB::rollBack();
+
             return $this->failed($exception->getMessage());
         }
     }
@@ -184,10 +181,9 @@ class PayBillController extends Controller
     /**
      * @lrd:start
      * Return a specified *PayBill* resource found by id.
+     *
      * @lrd:end
      *
-     * @param string|int $id
-     * @return PayBillResource|JsonResponse
      * @throws ModelNotFoundException
      */
     public function show(string|int $id): PayBillResource|JsonResponse
@@ -196,7 +192,7 @@ class PayBillController extends Controller
 
             $payBill = Tab::payBill()->find($id);
 
-            if (!$payBill) {
+            if (! $payBill) {
                 throw (new ModelNotFoundException)->setModel(config('fintech.tab.pay_bill_model'), $id);
             }
 
@@ -215,11 +211,8 @@ class PayBillController extends Controller
     /**
      * @lrd:start
      * Update a specified *PayBill* resource using id.
-     * @lrd:end
      *
-     * @param UpdatePayBillRequest $request
-     * @param string|int $id
-     * @return JsonResponse
+     * @lrd:end
      */
     public function update(UpdatePayBillRequest $request, string|int $id): JsonResponse
     {
@@ -227,13 +220,13 @@ class PayBillController extends Controller
 
             $payBill = Tab::payBill()->find($id);
 
-            if (!$payBill) {
+            if (! $payBill) {
                 throw (new ModelNotFoundException)->setModel(config('fintech.tab.pay_bill_model'), $id);
             }
 
             $inputs = $request->validated();
 
-            if (!Tab::payBill()->update($id, $inputs)) {
+            if (! Tab::payBill()->update($id, $inputs)) {
 
                 throw (new UpdateOperationException)->setModel(config('fintech.tab.pay_bill_model'), $id);
             }
@@ -253,10 +246,8 @@ class PayBillController extends Controller
     /**
      * @lrd:start
      * Soft delete a specified *PayBill* resource using id.
-     * @lrd:end
      *
-     * @param string|int $id
-     * @return JsonResponse
+     * @lrd:end
      */
     public function destroy(string|int $id): JsonResponse
     {
@@ -264,11 +255,11 @@ class PayBillController extends Controller
 
             $payBill = Tab::payBill()->find($id);
 
-            if (!$payBill) {
+            if (! $payBill) {
                 throw (new ModelNotFoundException)->setModel(config('fintech.tab.pay_bill_model'), $id);
             }
 
-            if (!Tab::payBill()->destroy($id)) {
+            if (! Tab::payBill()->destroy($id)) {
 
                 throw (new DeleteOperationException())->setModel(config('fintech.tab.pay_bill_model'), $id);
             }
@@ -289,10 +280,8 @@ class PayBillController extends Controller
      * @lrd:start
      * Restore the specified *PayBill* resource from trash.
      * ** ```Soft Delete``` needs to enabled to use this feature**
-     * @lrd:end
      *
-     * @param string|int $id
-     * @return JsonResponse
+     * @lrd:end
      */
     public function restore(string|int $id): JsonResponse
     {
@@ -300,11 +289,11 @@ class PayBillController extends Controller
 
             $payBill = Tab::payBill()->find($id, true);
 
-            if (!$payBill) {
+            if (! $payBill) {
                 throw (new ModelNotFoundException)->setModel(config('fintech.tab.pay_bill_model'), $id);
             }
 
-            if (!Tab::payBill()->restore($id)) {
+            if (! Tab::payBill()->restore($id)) {
 
                 throw (new RestoreOperationException())->setModel(config('fintech.tab.pay_bill_model'), $id);
             }
@@ -327,9 +316,6 @@ class PayBillController extends Controller
      * After export job is done system will fire  export completed event
      *
      * @lrd:end
-     *
-     * @param IndexPayBillRequest $request
-     * @return JsonResponse
      */
     public function export(IndexPayBillRequest $request): JsonResponse
     {
@@ -353,9 +339,6 @@ class PayBillController extends Controller
      * After export job is done system will fire  export completed event
      *
      * @lrd:end
-     *
-     * @param ImportPayBillRequest $request
-     * @return PayBillCollection|JsonResponse
      */
     public function import(ImportPayBillRequest $request): PayBillCollection|JsonResponse
     {

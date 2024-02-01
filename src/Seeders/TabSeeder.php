@@ -5,7 +5,6 @@ namespace Fintech\Tab\Seeders;
 use Fintech\Core\Facades\Core;
 use Fintech\Transaction\Facades\Transaction;
 use Illuminate\Database\Seeder;
-use Fintech\Tab\Facades\Tab;
 
 class TabSeeder extends Seeder
 {
@@ -61,7 +60,7 @@ class TabSeeder extends Seeder
                     ['service_type_name' => 'Education Fee', 'service_type_slug' => 'education_fee', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'education_fee.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'education_fee.png')), 'service_type_is_parent' => 'yes', 'service_type_is_description' => 'no', 'service_type_step' => '2', 'enabled' => true],
                     ['service_type_name' => 'E-service', 'service_type_slug' => 'e_service', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'e_service.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'e_service.png')), 'service_type_is_parent' => 'yes', 'service_type_is_description' => 'no', 'service_type_step' => '2', 'enabled' => true],
                     ['service_type_name' => 'Internet', 'service_type_slug' => 'internet', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'internet.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'internet.png')), 'service_type_is_parent' => 'yes', 'service_type_is_description' => 'no', 'service_type_step' => '2', 'enabled' => true],
-                ]
+                ],
             ],
         ];
     }
@@ -77,7 +76,7 @@ class TabSeeder extends Seeder
                 'code' => 'bill_payment',
                 'enabled' => true,
                 'transaction_form_data' => [],
-            ]
+            ],
         ];
     }
 }
