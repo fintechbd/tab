@@ -3,6 +3,7 @@
 namespace Fintech\Tab\Seeders;
 
 use Fintech\Core\Facades\Core;
+use Fintech\Transaction\Facades\Transaction;
 use Illuminate\Database\Seeder;
 use Fintech\Tab\Facades\Tab;
 
@@ -36,14 +37,14 @@ class TabSeeder extends Seeder
                 }
             }
         }
-        /*$data = $this->data();
+        $data = $this->transactionForms();
 
         foreach (array_chunk($data, 200) as $block) {
             set_time_limit(2100);
             foreach ($block as $entry) {
-                Airtime::airtime()->create($entry);
+                Transaction::transactionForm()->create($entry);
             }
-        }*/
+        }
     }
 
     private function data()
@@ -62,6 +63,21 @@ class TabSeeder extends Seeder
                     ['service_type_name' => 'Internet', 'service_type_slug' => 'internet', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'internet.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'internet.png')), 'service_type_is_parent' => 'yes', 'service_type_is_description' => 'no', 'service_type_step' => '2', 'enabled' => true],
                 ]
             ],
+        ];
+    }
+
+    /**
+     * @return array[]
+     */
+    private function transactionForms(): array
+    {
+        return [
+            [
+                'name' => 'Bill Payment',
+                'code' => 'bill_payment',
+                'enabled' => true,
+                'transaction_form_data' => [],
+            ]
         ];
     }
 }
