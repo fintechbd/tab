@@ -2,9 +2,9 @@
 
 namespace Fintech\Tab\Seeders;
 
-use Illuminate\Database\Seeder;
-use Fintech\Tab\Facades\Tab;
 use Fintech\Core\Facades\Core;
+use Fintech\Tab\Facades\Tab;
+use Illuminate\Database\Seeder;
 
 class PayBillSeeder extends Seeder
 {

@@ -11,19 +11,18 @@ use InvalidArgumentException;
 
 /**
  * Class PayBillRepository
- * @package Fintech\Tab\Repositories\Eloquent
  */
 class PayBillRepository extends EloquentRepository implements InterfacesPayBillRepository
 {
     public function __construct()
     {
-       $model = app(config('fintech.tab.pay_bill_model', \Fintech\Tab\Models\PayBill::class));
+        $model = app(config('fintech.tab.pay_bill_model', \Fintech\Tab\Models\PayBill::class));
 
-       if (!$model instanceof Model) {
-           throw new InvalidArgumentException("Eloquent repository require model class to be `Illuminate\Database\Eloquent\Model` instance.");
-       }
+        if (! $model instanceof Model) {
+            throw new InvalidArgumentException("Eloquent repository require model class to be `Illuminate\Database\Eloquent\Model` instance.");
+        }
 
-       $this->model = $model;
+        $this->model = $model;
     }
 
     /**
