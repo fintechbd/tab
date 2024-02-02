@@ -23,7 +23,7 @@ class StorePayBillRequest extends FormRequest
      */
     public function rules(): array
     {
-        $rules =  [
+        $rules = [
             'user_id' => ['nullable', 'integer', 'min:1'],
             'source_country_id' => ['required', 'integer', 'min:1'],
             'destination_country_id' => ['required', 'integer', 'min:1'],
