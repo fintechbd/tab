@@ -23,7 +23,7 @@ class StorePayBillRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules =  [
             'user_id' => ['nullable', 'integer', 'min:1'],
             'source_country_id' => ['required', 'integer', 'min:1'],
             'destination_country_id' => ['required', 'integer', 'min:1'],
@@ -44,6 +44,8 @@ class StorePayBillRequest extends FormRequest
             $validation = $serviceField->validation ?? 'string|nullable';
             $rules["order_data.{$serviceField->name}"] = explode('|', $validation);
         });
+
+        return $rules;
     }
 
     /**

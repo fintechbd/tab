@@ -173,7 +173,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             //DESCO PREPAID
@@ -188,7 +188,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             [
@@ -202,7 +202,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             [
@@ -216,7 +216,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             //DPDC POST PAID
@@ -231,7 +231,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             [
@@ -245,7 +245,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             [
@@ -259,7 +259,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             //DPDC PRE PAID
@@ -274,7 +274,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             [
@@ -288,7 +288,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             [
@@ -302,7 +302,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             //NESCO POSTPAID
@@ -317,7 +317,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             //NESCO PREPAID
@@ -332,7 +332,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             [
@@ -346,7 +346,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             //WEST ZONE POSTPAID
@@ -361,7 +361,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             //WEST ZONE PREPAID
@@ -376,7 +376,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             //DHAKA WASA
@@ -391,7 +391,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             //KHULNA WASA
@@ -406,7 +406,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             [
@@ -420,7 +420,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             //CHATTOGRAM WASA
@@ -435,7 +435,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             //JALALABAD GAS
@@ -450,7 +450,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             [
@@ -464,7 +464,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             //TITAS GAS
@@ -479,7 +479,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             [
@@ -493,7 +493,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             //BAKHRABAD GAS
@@ -508,7 +508,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             [
@@ -522,7 +522,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             [
@@ -536,7 +536,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             //PASCHIMANCHAL GAS
@@ -551,7 +551,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
             [
@@ -565,7 +565,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => true,
+                'validation' => 'required|min:5|max:20',
                 'service_field_data' => [],
             ],
         ];
