@@ -14,7 +14,7 @@ class TabSeeder extends Seeder
     public function run(): void
     {
         if (Core::packageExists('Business')) {
-            foreach ($this->data() as $entry) {
+            foreach ($this->serviceTypes() as $entry) {
                 $serviceTypeChild = $entry['serviceTypeChild'] ?? [];
 
                 if (isset($entry['serviceTypeChild'])) {
@@ -36,17 +36,11 @@ class TabSeeder extends Seeder
                 }
             }
         }
-        $data = $this->transactionForms();
 
-        foreach (array_chunk($data, 200) as $block) {
-            set_time_limit(2100);
-            foreach ($block as $entry) {
-                Transaction::transactionForm()->create($entry);
-            }
-        }
+        $this->setupTransactionForm();
     }
 
-    private function data()
+    private function serviceTypes(): array
     {
         $image_svg = __DIR__.'/../../resources/img/service_type/logo_svg/';
         $image_png = __DIR__.'/../../resources/img/service_type/logo_png/';
@@ -66,17 +60,15 @@ class TabSeeder extends Seeder
     }
 
     /**
-     * @return array[]
+     * @return void
      */
-    private function transactionForms(): array
+    private function setupTransactionForm(): void
     {
-        return [
-            [
+        Transaction::transactionForm()->create([
                 'name' => 'Bill Payment',
                 'code' => 'bill_payment',
                 'enabled' => true,
                 'transaction_form_data' => [],
-            ],
-        ];
+            ]);
     }
 }
