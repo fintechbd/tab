@@ -1,6 +1,6 @@
 <?php
 
-namespace Fintech\Tab\Seeders;
+namespace Fintech\Tab\Seeders\Bangladesh;
 
 use Fintech\Business\Facades\Business;
 use Fintech\Core\Facades\Core;
@@ -72,8 +72,8 @@ class PayBillSeeder extends Seeder
 
     private function serviceTypes(): array
     {
-        $image_svg = __DIR__.'/../../resources/img/service_type/logo_svg/';
-        $image_png = __DIR__.'/../../resources/img/service_type/logo_png/';
+        $image_svg = __DIR__.'/../../../resources/img/service_type/logo_svg/';
+        $image_png = __DIR__.'/../../../resources/img/service_type/logo_png/';
 
         return [
             ['service_type_parent_id' => \Fintech\Business\Facades\Business::serviceType()->list(['service_type_slug' => 'electricity'])->first()->id, 'service_type_name' => 'DESCO Postpaid', 'service_type_slug' => 'desco_postpaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'desco_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'desco_postpaid.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
@@ -97,8 +97,8 @@ class PayBillSeeder extends Seeder
 
     private function service(): array
     {
-        $image_svg = __DIR__.'/../../resources/img/service/logo_svg/';
-        $image_png = __DIR__.'/../../resources/img/service/logo_png/';
+        $image_svg = __DIR__.'/../../../resources/img/service/logo_svg/';
+        $image_png = __DIR__.'/../../../resources/img/service/logo_png/';
 
         return [
             ['service_type_id' => \Fintech\Business\Facades\Business::serviceType()->list(['service_type_slug' => 'desco_postpaid'])->first()->id, 'service_vendor_id' => 1, 'service_name' => 'DESCO Postpaid', 'service_slug' => 'desco_postpaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'desco_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'desco_postpaid.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 1, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
