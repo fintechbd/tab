@@ -59,16 +59,13 @@ class TabSeeder extends Seeder
         ];
     }
 
-    /**
-     * @return void
-     */
     private function setupTransactionForm(): void
     {
         Transaction::transactionForm()->create([
-                'name' => 'Bill Payment',
-                'code' => 'bill_payment',
-                'enabled' => true,
-                'transaction_form_data' => [],
-            ]);
+            'name' => 'Bill Payment',
+            'code' => 'bill_payment',
+            'enabled' => true,
+            'transaction_form_data' => [],
+        ]);
     }
 }
