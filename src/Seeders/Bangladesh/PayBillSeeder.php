@@ -15,7 +15,7 @@ class PayBillSeeder extends Seeder
     {
         if (Core::packageExists('Business')) {
 
-            foreach ($this->serviceType() as $entry) {
+            foreach ($this->serviceTypes() as $entry) {
                 $serviceTypeChild = $entry['serviceTypeChild'] ?? [];
 
                 if (isset($entry['serviceTypeChild'])) {
@@ -70,7 +70,7 @@ class PayBillSeeder extends Seeder
         return [];
     }
 
-    private function serviceType(): array
+    private function serviceTypes(): array
     {
         $image_svg = __DIR__.'/../../resources/img/service_type/logo_svg/';
         $image_png = __DIR__.'/../../resources/img/service_type/logo_png/';
@@ -125,13 +125,15 @@ class PayBillSeeder extends Seeder
     {
         $serviceLists = $this->service();
         $serviceStats = [];
+        $roles = \Fintech\Auth\Facades\Auth::role()->list(['id_not_in_array' => [1]])->pluck('id')->toArray();
+        $source_countries = \Fintech\MetaData\Facades\MetaData::country()->list(['is_serving' => true])->pluck('id')->toArray();
         foreach ($serviceLists as $serviceList) {
             $service = \Fintech\Business\Facades\Business::service()->list(['service_slug' => $serviceList['service_slug']])->first();
             $serviceStats[] = [
-                'role_id' => [2, 3, 4, 5, 6, 7],
+                'role_id' => $roles,
                 'service_id' => $service->getKey(),
                 'service_slug' => $service->service_slug,
-                'source_country_id' => [39, 133, 192, 231],
+                'source_country_id' => $source_countries,
                 'destination_country_id' => [19],
                 'service_vendor_id' => 1,
                 'service_stat_data' => [
@@ -139,9 +141,9 @@ class PayBillSeeder extends Seeder
                         'lower_limit' => '10.00',
                         'higher_limit' => '5000.00',
                         'local_currency_higher_limit' => '25000.00',
-                        'charge' => '5%',
-                        'discount' => '5%',
-                        'commission' => '5%',
+                        'charge' => mt_rand(1, 7) . '%',
+                        'discount' => mt_rand(1, 7) . '%',
+                        'commission' => mt_rand(1, 7) . '%',
                         'cost' => '0.00',
                         'charge_refund' => 'yes',
                         'discount_refund' => 'yes',
