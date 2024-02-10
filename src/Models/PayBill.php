@@ -6,13 +6,13 @@ use Fintech\Airtime\Traits\AuthRelations;
 use Fintech\Airtime\Traits\BusinessRelations;
 use Fintech\Airtime\Traits\MetaDataRelations;
 use Fintech\Core\Traits\AuditableTrait;
-use Illuminate\Database\Eloquent\Model;
+use Fintech\Transaction\Models\Order;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property mixed $status
  */
-class PayBill extends Model
+class PayBill extends Order
 {
     use AuditableTrait;
     use AuthRelations;
