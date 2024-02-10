@@ -56,7 +56,6 @@ class PayBillController extends Controller
             //$inputs['service_id'] = Business::serviceType()->list(['service_type_slug'=>'bill_payment']);
             $inputs['service_type_slug'] = 'bill_payment';
             $payBillPaginate = Tab::payBill()->list($inputs);
-//            $payBillPaginate = Transaction::order()->list($inputs);
 
             return new PayBillCollection($payBillPaginate);
 
