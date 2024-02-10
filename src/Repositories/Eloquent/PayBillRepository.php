@@ -2,7 +2,6 @@
 
 namespace Fintech\Tab\Repositories\Eloquent;
 
-use Fintech\Core\Repositories\EloquentRepository;
 use Fintech\Tab\Interfaces\PayBillRepository as InterfacesPayBillRepository;
 use Fintech\Transaction\Repositories\Eloquent\OrderRepository;
 use Illuminate\Contracts\Container\BindingResolutionException;
