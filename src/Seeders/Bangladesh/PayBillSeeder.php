@@ -263,7 +263,7 @@ class PayBillSeeder extends Seeder
                 'enabled' => true,
                 'validation' => 'required|min:5|max:20',
                 'service_field_data' => [
-                    'min' => "2023"
+                    'min' => '2023',
                 ],
             ],
             [
@@ -321,7 +321,7 @@ class PayBillSeeder extends Seeder
                 'enabled' => true,
                 'validation' => 'required|min:5|max:20',
                 'service_field_data' => [
-                    "min" => "2020"
+                    'min' => '2020',
                 ],
             ],
             [
