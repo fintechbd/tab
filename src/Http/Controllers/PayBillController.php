@@ -54,7 +54,7 @@ class PayBillController extends Controller
             //$inputs['transaction_form_id'] = Transaction::transactionForm()->list(['code' => 'bill_payment'])->first()->getKey();
             $inputs['transaction_form_code'] = 'bill_payment';
             //$inputs['service_id'] = Business::serviceType()->list(['service_type_slug'=>'bill_payment']);
-            $inputs['service_type_slug'] = 'bill_payment';
+            //$inputs['service_type_slug'] = 'bill_payment';
             $payBillPaginate = Tab::payBill()->list($inputs);
 
             return new PayBillCollection($payBillPaginate);
