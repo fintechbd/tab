@@ -379,7 +379,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => 'required|min:5|max:20',
+                'validation' => 'required|numeric|min:1',
                 'service_field_data' => new stdClass(),
             ],
             //WEST ZONE POSTPAID
@@ -575,7 +575,7 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => 'required|min:5|max:20',
+                'validation' => 'required|min:1|string|max:2',
                 'service_field_data' => new stdClass(),
             ],
             //PASCHIMANCHAL GAS
