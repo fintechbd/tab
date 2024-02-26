@@ -4,6 +4,7 @@ namespace Fintech\Tab\Repositories\Mongodb;
 
 use Fintech\Core\Repositories\MongodbRepository;
 use Fintech\Tab\Interfaces\PayBillRepository as InterfacesPayBillRepository;
+use Fintech\Tab\Models\PayBill;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Collection;
 use InvalidArgumentException;
@@ -16,9 +17,9 @@ class PayBillRepository extends MongodbRepository implements InterfacesPayBillRe
 {
     public function __construct()
     {
-        $model = app(config('fintech.tab.pay_bill_model', \Fintech\Tab\Models\PayBill::class));
+        $model = app(config('fintech.tab.pay_bill_model', PayBill::class));
 
-        if (! $model instanceof Model) {
+        if (!$model instanceof Model) {
             throw new InvalidArgumentException("Mongodb repository require model class to be `MongoDB\Laravel\Eloquent\Model` instance.");
         }
 
@@ -36,7 +37,7 @@ class PayBillRepository extends MongodbRepository implements InterfacesPayBillRe
         $query = $this->model->newQuery();
 
         //Searching
-        if (! empty($filters['search'])) {
+        if (!empty($filters['search'])) {
             if (is_numeric($filters['search'])) {
                 $query->where($this->model->getKeyName(), 'like', "%{$filters['search']}%");
             } else {

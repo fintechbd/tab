@@ -2,10 +2,11 @@
 
 namespace Fintech\Tab\Facades;
 
+use Fintech\Tab\Services\PayBillService;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static \Fintech\Tab\Services\PayBillService payBill()
+ * @method static PayBillService payBill()
  *                                                               // Crud Service Method Point Do not Remove //
  *
  * @see \Fintech\Tab\Tab

@@ -1,6 +1,9 @@
 <?php
 
 // config for Fintech/Tab
+use Fintech\Tab\Models\PayBill;
+use Fintech\Tab\Repositories\Eloquent\PayBillRepository;
+
 return [
 
     /*
@@ -31,7 +34,7 @@ return [
     |
     | This value will be used to across system where model is needed
     */
-    'pay_bill_model' => \Fintech\Tab\Models\PayBill::class,
+    'pay_bill_model' => PayBill::class,
 
     //** Model Config Point Do not Remove **//
 
@@ -44,9 +47,9 @@ return [
     */
 
     'repositories' => [
-        \Fintech\Tab\Interfaces\PayBillRepository::class => \Fintech\Tab\Repositories\Eloquent\PayBillRepository::class,
+        \Fintech\Tab\Interfaces\PayBillRepository::class => PayBillRepository::class,
 
-        \Fintech\Tab\Interfaces\PayBillRepository::class => \Fintech\Tab\Repositories\Eloquent\PayBillRepository::class,
+        \Fintech\Tab\Interfaces\PayBillRepository::class => PayBillRepository::class,
 
         //** Repository Binding Config Point Do not Remove **//
     ],

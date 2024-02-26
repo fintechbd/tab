@@ -1,5 +1,6 @@
 <?php
 
+use Fintech\Tab\Http\Controllers\PayBillController;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 
@@ -16,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 if (Config::get('fintech.tab.enabled')) {
     Route::prefix('tab')->name('tab.')->group(function () {
 
-        Route::apiResource('pay-bills', \Fintech\Tab\Http\Controllers\PayBillController::class);
-        Route::post('pay-bills/{pay_bill}/restore', [\Fintech\Tab\Http\Controllers\PayBillController::class, 'restore'])->name('pay-bills.restore');
+        Route::apiResource('pay-bills', PayBillController::class);
+        Route::post('pay-bills/{pay_bill}/restore', [PayBillController::class, 'restore'])->name('pay-bills.restore');
 
         //DO NOT REMOVE THIS LINE//
     });

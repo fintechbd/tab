@@ -3,11 +3,11 @@
 namespace Fintech\Tab\Repositories\Eloquent;
 
 use Fintech\Tab\Interfaces\PayBillRepository as InterfacesPayBillRepository;
+use Fintech\Tab\Models\PayBill;
 use Fintech\Transaction\Repositories\Eloquent\OrderRepository;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
 use InvalidArgumentException;
 
 /**
@@ -17,9 +17,9 @@ class PayBillRepository extends OrderRepository implements InterfacesPayBillRepo
 {
     public function __construct()
     {
-        $model = app(config('fintech.tab.pay_bill_model', \Fintech\Tab\Models\PayBill::class));
+        $model = app(config('fintech.tab.pay_bill_model', PayBill::class));
 
-        if (! $model instanceof Model) {
+        if (!$model instanceof Model) {
             throw new InvalidArgumentException("Eloquent repository require model class to be `Illuminate\Database\Eloquent\Model` instance.");
         }
 

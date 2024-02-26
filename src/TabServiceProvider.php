@@ -14,7 +14,7 @@ class TabServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/tab.php', 'fintech.tab'
+            __DIR__ . '/../config/tab.php', 'fintech.tab'
         );
 
         $this->app->register(RouteServiceProvider::class);
@@ -27,21 +27,21 @@ class TabServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->publishes([
-            __DIR__.'/../config/tab.php' => config_path('fintech/tab.php'),
+            __DIR__ . '/../config/tab.php' => config_path('fintech/tab.php'),
         ]);
 
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 
-        $this->loadTranslationsFrom(__DIR__.'/../lang', 'tab');
+        $this->loadTranslationsFrom(__DIR__ . '/../lang', 'tab');
 
         $this->publishes([
-            __DIR__.'/../lang' => $this->app->langPath('vendor/tab'),
+            __DIR__ . '/../lang' => $this->app->langPath('vendor/tab'),
         ]);
 
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'tab');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'tab');
 
         $this->publishes([
-            __DIR__.'/../resources/views' => resource_path('views/vendor/tab'),
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/tab'),
         ]);
 
         if ($this->app->runningInConsole()) {
