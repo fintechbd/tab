@@ -16,9 +16,6 @@ class TabServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__.'/../config/tab.php', 'fintech.tab'
         );
-
-        $this->app->register(RouteServiceProvider::class);
-        $this->app->register(RepositoryServiceProvider::class);
     }
 
     /**

@@ -60,7 +60,9 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Fintech\\Tab\\TabServiceProvider"
+                "Fintech\\Tab\\TabServiceProvider",
+                "Fintech\\Tab\\RepositoryServiceProvider",
+                "Fintech\\Tab\\RouteServiceProvider"
             ],
             "aliases": {
                 "Tab": "Fintech\\Tab\\Facades\\Tab"
