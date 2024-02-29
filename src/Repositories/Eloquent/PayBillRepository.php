@@ -17,13 +17,7 @@ class PayBillRepository extends OrderRepository implements InterfacesPayBillRepo
 {
     public function __construct()
     {
-        $model = app(config('fintech.tab.pay_bill_model', PayBill::class));
-
-        if (!$model instanceof Model) {
-            throw new InvalidArgumentException("Eloquent repository require model class to be `Illuminate\Database\Eloquent\Model` instance.");
-        }
-
-        $this->model = $model;
+        parent::__construct(config('fintech.tab.pay_bill_model', PayBill::class));
     }
 
     /**
