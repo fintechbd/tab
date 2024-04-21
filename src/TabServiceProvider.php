@@ -2,17 +2,22 @@
 
 namespace Fintech\Tab;
 
+use Fintech\Core\Traits\RegisterPackageTrait;
 use Fintech\Tab\Commands\InstallCommand;
 use Fintech\Tab\Commands\TabCommand;
 use Illuminate\Support\ServiceProvider;
 
 class TabServiceProvider extends ServiceProvider
 {
+    use RegisterPackageTrait;
+
     /**
      * Register any application services.
      */
     public function register(): void
     {
+        $this->packageCode = 'tab';
+
         $this->mergeConfigFrom(
             __DIR__.'/../config/tab.php', 'fintech.tab'
         );
@@ -26,6 +31,8 @@ class TabServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $this->injectOnConfig();
+
         $this->publishes([
             __DIR__.'/../config/tab.php' => config_path('fintech/tab.php'),
         ]);
