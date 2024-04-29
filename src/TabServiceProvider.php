@@ -22,8 +22,8 @@ class TabServiceProvider extends ServiceProvider
             __DIR__.'/../config/tab.php', 'fintech.tab'
         );
 
-        $this->app->register(RouteServiceProvider::class);
-        $this->app->register(RepositoryServiceProvider::class);
+        $this->app->register(\Fintech\Tab\Providers\RouteServiceProvider::class);
+        $this->app->register(\Fintech\Tab\Providers\RepositoryServiceProvider::class);
     }
 
     /**
