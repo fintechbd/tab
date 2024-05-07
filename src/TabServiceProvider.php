@@ -4,7 +4,6 @@ namespace Fintech\Tab;
 
 use Fintech\Core\Traits\RegisterPackageTrait;
 use Fintech\Tab\Commands\InstallCommand;
-use Fintech\Tab\Commands\TabCommand;
 use Illuminate\Support\ServiceProvider;
 
 class TabServiceProvider extends ServiceProvider
@@ -22,7 +21,6 @@ class TabServiceProvider extends ServiceProvider
             __DIR__.'/../config/tab.php', 'fintech.tab'
         );
 
-        $this->app->register(\Fintech\Tab\Providers\RouteServiceProvider::class);
         $this->app->register(\Fintech\Tab\Providers\RepositoryServiceProvider::class);
     }
 
@@ -53,8 +51,7 @@ class TabServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->commands([
-                InstallCommand::class,
-                TabCommand::class,
+                InstallCommand::class
             ]);
         }
     }
