@@ -35,7 +35,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Fintech\\Tab\\": "src/"
+            "Fintech\\Tab\\": "src/",
+            "Fintech\\Tab\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
