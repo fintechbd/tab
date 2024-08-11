@@ -174,7 +174,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|min:5|max:20',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             //DESCO PREPAID
             [
@@ -189,7 +189,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|min:5|max:20',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'desco_prepaid'])->first()->id,
@@ -203,7 +203,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|numeric|min:1',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'desco_prepaid'])->first()->id,
@@ -217,7 +217,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|string|min:11|max:15',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             //DPDC POST PAID
             [
@@ -245,7 +245,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|size:2|string|in:01,02,03,04,05,06,07,08,09,10,11,12',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'dpdc_postpaid'])->first()->id,
@@ -275,7 +275,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|min:5|max:20',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             //DPDC PRE PAID
             [
@@ -303,7 +303,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|size:2|string|in:01,02,03,04,05,06,07,08,09,10,11,12',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'dpdc_prepaid'])->first()->id,
@@ -333,7 +333,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|min:5|max:20',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             //NESCO POSTPAID
             [
@@ -348,7 +348,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|min:5|max:20',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             //NESCO PREPAID
             [
@@ -363,7 +363,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|min:5|max:20',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'nesco_prepaid'])->first()->id,
@@ -377,7 +377,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|numeric|min:1',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             //WEST ZONE POSTPAID
             [
@@ -392,7 +392,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|min:5|max:20',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             //WEST ZONE PREPAID
             [
@@ -407,7 +407,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|min:5|max:20',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             //DHAKA WASA
             [
@@ -422,7 +422,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|min:5|max:20',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             //KHULNA WASA
             [
@@ -437,7 +437,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|min:5|max:20',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'khulna_wasa'])->first()->id,
@@ -454,7 +454,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|min:1|string|max:2',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             //CHATTOGRAM WASA
             [
@@ -469,7 +469,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|min:5|max:20',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             //JALALABAD GAS
             [
@@ -484,7 +484,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|min:5|max:20',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'jalalabad_gas'])->first()->id,
@@ -498,7 +498,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|min:5|max:20',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             //TITAS GAS
             [
@@ -513,7 +513,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|min:5|max:20',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'titas_gas_metered'])->first()->id,
@@ -527,7 +527,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|min:5|max:20',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             //BAKHRABAD GAS
             [
@@ -542,7 +542,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|min:5|max:20',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'bakhrabad_gas'])->first()->id,
@@ -556,7 +556,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|min:5|max:20',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'bakhrabad_gas'])->first()->id,
@@ -573,7 +573,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|min:1|string|max:2',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             //PASCHIMANCHAL GAS
             [
@@ -588,7 +588,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|min:5|max:20',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'paschimanchal_gas'])->first()->id,
@@ -602,7 +602,7 @@ class PayBillSeeder extends Seeder
                 'reserved' => true,
                 'enabled' => true,
                 'validation' => 'required|min:5|max:20',
-                'service_field_data' => new stdClass(),
+                'service_field_data' => new stdClass,
             ],
         ];
     }

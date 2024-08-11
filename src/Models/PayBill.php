@@ -32,8 +32,6 @@ class PayBill extends Order
 
     protected $guarded = ['id'];
 
-
-
     protected $casts = ['order_data' => 'array', 'restored_at' => 'datetime'];
 
     protected $hidden = ['creator_id', 'editor_id', 'destroyer_id', 'restorer_id'];
