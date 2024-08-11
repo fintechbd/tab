@@ -32,7 +32,7 @@ class PayBill extends Order
 
     protected $guarded = ['id'];
 
-    protected $appends = ['links'];
+
 
     protected $casts = ['order_data' => 'array', 'restored_at' => 'datetime'];
 
