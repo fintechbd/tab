@@ -16,10 +16,10 @@ class TabSeeder extends Seeder
     {
         if (Core::packageExists('Business')) {
             foreach ($this->serviceTypes() as $entry) {
-                $serviceTypeChild = $entry['serviceTypeChild'] ?? [];
+                $serviceTypeChildren = $entry['serviceTypeChildren'] ?? [];
 
-                if (isset($entry['serviceTypeChild'])) {
-                    unset($entry['serviceTypeChild']);
+                if (isset($entry['serviceTypeChildren'])) {
+                    unset($entry['serviceTypeChildren']);
                 }
 
                 $findServiceTypeModel = Business::serviceType()->list(['service_type_slug' => $entry['service_type_slug']])->first();
@@ -29,8 +29,8 @@ class TabSeeder extends Seeder
                     $serviceTypeModel = Business::serviceType()->create($entry);
                 }
 
-                if (! empty($serviceTypeChild)) {
-                    array_walk($serviceTypeChild, function ($item) use (&$serviceTypeModel) {
+                if (! empty($serviceTypeChildren)) {
+                    array_walk($serviceTypeChildren, function ($item) use (&$serviceTypeModel) {
                         $item['service_type_parent_id'] = $serviceTypeModel->id;
                         Business::serviceType()->create($item);
                     });
@@ -48,7 +48,7 @@ class TabSeeder extends Seeder
 
         return [
             ['service_type_parent_id' => null, 'service_type_name' => 'Bill Payment', 'service_type_slug' => 'bill_payment', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'bill_payment.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'bill_payment.png')), 'service_type_is_parent' => 'yes', 'service_type_is_description' => 'no', 'service_type_step' => '1', 'enabled' => true,
-                'serviceTypeChild' => [
+                'serviceTypeChildren' => [
                     ['service_type_name' => 'Electricity', 'service_type_slug' => 'electricity', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'electricity.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'electricity.png')), 'service_type_is_parent' => 'yes', 'service_type_is_description' => 'no', 'service_type_step' => '2', 'enabled' => true],
                     ['service_type_name' => 'Water', 'service_type_slug' => 'water', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'water.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'water.png')), 'service_type_is_parent' => 'yes', 'service_type_is_description' => 'no', 'service_type_step' => '2', 'enabled' => true],
                     ['service_type_name' => 'GAS', 'service_type_slug' => 'gas', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'gas.png')), 'service_type_is_parent' => 'yes', 'service_type_is_description' => 'no', 'service_type_step' => '2', 'enabled' => true],
