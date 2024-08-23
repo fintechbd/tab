@@ -40,6 +40,30 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Service Providers
+    |--------------------------------------------------------------------------
+    |
+    | This value will be used across systems where a repository instance is needed
+    */
+    'providers' => [
+        'sslvr' => [
+            'mode' => 'sandbox',
+            'driver' => Fintech\Airtime\Vendors\SSLVirtualRecharge::class,
+            'live' => [
+                'endpoint' => 'https://api.sslwireless.com/api',
+                'auth_key' => env('PACKAGE_AIRTIME_SSLVR_AUTH_KEY'),
+                'stk_code' => env('PACKAGE_AIRTIME_SSLVR_STK_CODE'),
+            ],
+            'sandbox' => [
+                'endpoint' => 'https://api.sslwireless.com/api',
+                'auth_key' => env('PACKAGE_AIRTIME_SSLVR_AUTH_KEY'),
+                'stk_code' => env('PACKAGE_AIRTIME_SSLVR_STK_CODE'),
+            ],
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Repositories
     |--------------------------------------------------------------------------
     |
