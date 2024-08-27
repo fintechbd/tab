@@ -46,18 +46,18 @@ return [
     | This value will be used across systems where a repository instance is needed
     */
     'providers' => [
-        'sslvr' => [
+        'sslutil' => [
             'mode' => 'sandbox',
-            'driver' => Fintech\Airtime\Vendors\SSLVirtualRecharge::class,
+            'driver' => Fintech\Tab\Vendors\SSLUtility::class,
             'live' => [
                 'endpoint' => 'https://api.sslwireless.com/api',
-                'auth_key' => env('PACKAGE_AIRTIME_SSLVR_AUTH_KEY'),
-                'stk_code' => env('PACKAGE_AIRTIME_SSLVR_STK_CODE'),
+                'auth_key' => env('PACKAGE_TAB_SSLUTIL_AUTH_KEY'),
+                'stk_code' => env('PACKAGE_TAB_SSLUTIL_STK_CODE'),
             ],
             'sandbox' => [
                 'endpoint' => 'https://api.sslwireless.com/api',
-                'auth_key' => env('PACKAGE_AIRTIME_SSLVR_AUTH_KEY'),
-                'stk_code' => env('PACKAGE_AIRTIME_SSLVR_STK_CODE'),
+                'auth_key' => env('PACKAGE_TAB_SSLUTIL_AUTH_KEY'),
+                'stk_code' => env('PACKAGE_TAB_SSLUTIL_STK_CODE'),
             ],
         ],
     ],
@@ -71,8 +71,6 @@ return [
     */
 
     'repositories' => [
-        \Fintech\Tab\Interfaces\PayBillRepository::class => PayBillRepository::class,
-
         \Fintech\Tab\Interfaces\PayBillRepository::class => PayBillRepository::class,
 
         //** Repository Binding Config Point Do not Remove **//
