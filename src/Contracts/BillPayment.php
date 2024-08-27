@@ -2,7 +2,4 @@
 
 namespace Fintech\Tab\Contracts;
 
-interface BillPayment
-{
-
-}
+interface BillPayment {}
