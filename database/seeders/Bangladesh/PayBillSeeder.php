@@ -83,7 +83,7 @@ class PayBillSeeder extends Seeder
             ['service_type_parent_id' => Business::serviceType()->list(['service_type_slug' => 'electricity'])->first()->id, 'service_type_name' => 'West Zone Postpaid', 'service_type_slug' => 'west_zone_postpaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'west_zone_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'west_zone_postpaid.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
             ['service_type_parent_id' => Business::serviceType()->list(['service_type_slug' => 'electricity'])->first()->id, 'service_type_name' => 'West Zone Prepaid', 'service_type_slug' => 'west_zone_prepaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'west_zone_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'west_zone_postpaid.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
 
-            ['service_type_parent_id' => Business::serviceType()->list(['service_type_slug' => 'electricity'])->first()->id, 'service_type_name' => 'BPDB Postpaid', 'service_type_slug' => 'bpdb_postpaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'bpdb.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'bpdb.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
+            ['service_type_parent_id' => Business::serviceType()->list(['service_type_slug' => 'electricity'])->first()->id, 'service_type_name' => 'BPDB Prepaid', 'service_type_slug' => 'bpdb_prepaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'bpdb.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'bpdb.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
             ['service_type_parent_id' => Business::serviceType()->list(['service_type_slug' => 'electricity'])->first()->id, 'service_type_name' => 'BREB Postpaid', 'service_type_slug' => 'breb_postpaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'breb.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'breb.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
 
             ['service_type_parent_id' => Business::serviceType()->list(['service_type_slug' => 'water'])->first()->id, 'service_type_name' => 'Dhaka WASA', 'service_type_slug' => 'dhaka_wasa', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'dhaka_wasa.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'dhaka_wasa.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
@@ -114,7 +114,7 @@ class PayBillSeeder extends Seeder
             ['service_type_id' => Business::serviceType()->list(['service_type_slug' => 'nesco_prepaid'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'NESCO Prepaid', 'service_slug' => 'nesco_prepaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'nesco_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'nesco_postpaid.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
             ['service_type_id' => Business::serviceType()->list(['service_type_slug' => 'west_zone_postpaid'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'West Zone Postpaid', 'service_slug' => 'west_zone_postpaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'west_zone_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'west_zone_postpaid.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => 'GP ST'], 'enabled' => true],
             ['service_type_id' => Business::serviceType()->list(['service_type_slug' => 'west_zone_prepaid'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'West Zone Prepaid', 'service_slug' => 'west_zone_prepaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'west_zone_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'west_zone_postpaid.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
-            ['service_type_id' => Business::serviceType()->list(['service_type_slug' => 'bpdb_postpaid'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'BPDB Postpaid', 'service_slug' => 'bpdb_postpaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'bpdb.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'bpdb.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
+            ['service_type_id' => Business::serviceType()->list(['service_type_slug' => 'bpdb_prepaid'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'BPDB Prepaid', 'service_slug' => 'bpdb_prepaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'bpdb.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'bpdb.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
             ['service_type_id' => Business::serviceType()->list(['service_type_slug' => 'breb_postpaid'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'BREB Postpaid', 'service_slug' => 'breb_postpaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'breb.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'breb.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
             ['service_type_id' => Business::serviceType()->list(['service_type_slug' => 'dhaka_wasa'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Dhaka WASA', 'service_slug' => 'dhaka_wasa', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'dhaka_wasa.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'dhaka_wasa.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
             ['service_type_id' => Business::serviceType()->list(['service_type_slug' => 'khulna_wasa'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Khulna WASA', 'service_slug' => 'khulna_wasa', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'khulna_wasa.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'khulna_wasa.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
@@ -171,9 +171,10 @@ class PayBillSeeder extends Seeder
     private function serviceField(): array
     {
         return [
+            //DESCO POSTPAID
             [
                 'service_id' => Business::service()->list(['service_slug' => 'desco_postpaid'])->first()->id,
-                'name' => 'bll_no',
+                'name' => 'bill_number',
                 'label' => 'Bill Number',
                 'type' => 'text',
                 'options' => [],
@@ -188,7 +189,7 @@ class PayBillSeeder extends Seeder
             //DESCO PREPAID
             [
                 'service_id' => Business::service()->list(['service_slug' => 'desco_prepaid'])->first()->id,
-                'name' => 'bllr_accno',
+                'name' => 'account_number',
                 'label' => 'Account Number',
                 'type' => 'text',
                 'options' => [],
@@ -216,7 +217,7 @@ class PayBillSeeder extends Seeder
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'desco_prepaid'])->first()->id,
-                'name' => 'bill_mobno',
+                'name' => 'mobile_number',
                 'label' => 'Mobile Number',
                 'type' => 'text',
                 'options' => [],
@@ -231,7 +232,7 @@ class PayBillSeeder extends Seeder
             //DPDC POST PAID
             [
                 'service_id' => Business::service()->list(['service_slug' => 'dpdc_postpaid'])->first()->id,
-                'name' => 'bill_monthh',
+                'name' => 'bill_month',
                 'label' => 'Bill Month',
                 'type' => 'select',
                 'options' => [
@@ -267,14 +268,14 @@ class PayBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => 'required|min:5|max:20',
+                'validation' => 'required|size:4|string',
                 'service_field_data' => [
-                    'min' => '2023',
+                    'min' => '2020',
                 ],
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'dpdc_postpaid'])->first()->id,
-                'name' => 'bllr_accno',
+                'name' => 'account_number',
                 'label' => 'Account code',
                 'type' => 'text',
                 'options' => [],
@@ -289,7 +290,7 @@ class PayBillSeeder extends Seeder
             //DPDC PRE PAID
             [
                 'service_id' => Business::service()->list(['service_slug' => 'dpdc_prepaid'])->first()->id,
-                'name' => 'bill_monthh',
+                'name' => 'bill_month',
                 'label' => 'Bill Month',
                 'type' => 'select',
                 'options' => [
@@ -332,7 +333,7 @@ class PayBillSeeder extends Seeder
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'dpdc_prepaid'])->first()->id,
-                'name' => 'bllr_accno',
+                'name' => 'account_number',
                 'label' => 'Account code',
                 'type' => 'text',
                 'options' => [],
@@ -347,7 +348,7 @@ class PayBillSeeder extends Seeder
             //NESCO POSTPAID
             [
                 'service_id' => Business::service()->list(['service_slug' => 'nesco_postpaid'])->first()->id,
-                'name' => 'bll_no',
+                'name' => 'bill_number',
                 'label' => 'Bill Number',
                 'type' => 'text',
                 'options' => [],
@@ -362,7 +363,7 @@ class PayBillSeeder extends Seeder
             //NESCO PREPAID
             [
                 'service_id' => Business::service()->list(['service_slug' => 'nesco_prepaid'])->first()->id,
-                'name' => 'bllr_accno',
+                'name' => 'account_number',
                 'label' => 'Customer Number',
                 'type' => 'text',
                 'options' => [],
@@ -391,7 +392,7 @@ class PayBillSeeder extends Seeder
             //WEST ZONE POSTPAID
             [
                 'service_id' => Business::service()->list(['service_slug' => 'west_zone_postpaid'])->first()->id,
-                'name' => 'bllr_accno',
+                'name' => 'account_number',
                 'label' => 'Account Number',
                 'type' => 'text',
                 'options' => [],
@@ -406,7 +407,137 @@ class PayBillSeeder extends Seeder
             //WEST ZONE PREPAID
             [
                 'service_id' => Business::service()->list(['service_slug' => 'west_zone_prepaid'])->first()->id,
-                'name' => 'bllr_accno',
+                'name' => 'account_number',
+                'label' => 'Account Number',
+                'type' => 'text',
+                'options' => [],
+                'value' => '',
+                'hint' => '',
+                'required' => true,
+                'reserved' => true,
+                'enabled' => true,
+                'validation' => 'required|min:5|max:20',
+                'service_field_data' => new stdClass,
+            ],
+            //BPDB PREPAID
+            [
+                'service_id' => Business::service()->list(['service_slug' => 'bpdb_prepaid'])->first()->id,
+                'name' => 'meter_no',
+                'label' => 'Meter Number',
+                'type' => 'select',
+                'options' => [
+                    ['attribute' => '01', 'label' => 'January'],
+                    ['attribute' => '02', 'label' => 'February'],
+                    ['attribute' => '03', 'label' => 'March'],
+                    ['attribute' => '04', 'label' => 'April'],
+                    ['attribute' => '05', 'label' => 'May'],
+                    ['attribute' => '06', 'label' => 'June'],
+                    ['attribute' => '07', 'label' => 'July'],
+                    ['attribute' => '08', 'label' => 'August'],
+                    ['attribute' => '09', 'label' => 'September'],
+                    ['attribute' => '10', 'label' => 'October'],
+                    ['attribute' => '11', 'label' => 'November'],
+                    ['attribute' => '12', 'label' => 'December'],
+                ],
+                'value' => '',
+                'hint' => '',
+                'required' => true,
+                'reserved' => true,
+                'enabled' => true,
+                'validation' => 'required|max:50|min:1|string',
+                'service_field_data' => new stdClass,
+            ],
+            [
+                'service_id' => Business::service()->list(['service_slug' => 'bpdb_prepaid'])->first()->id,
+                'name' => 'bill_year',
+                'label' => 'Bill Year',
+                'type' => 'select-year',
+                'options' => [],
+                'value' => '',
+                'hint' => '',
+                'required' => true,
+                'reserved' => true,
+                'enabled' => true,
+                'validation' => 'required|min:5|max:20',
+                'service_field_data' => [
+                    'min' => '2023',
+                ],
+            ],
+            [
+                'service_id' => Business::service()->list(['service_slug' => 'bpdb_prepaid'])->first()->id,
+                'name' => 'account_number',
+                'label' => 'Account code',
+                'type' => 'text',
+                'options' => [],
+                'value' => '',
+                'hint' => '',
+                'required' => true,
+                'reserved' => true,
+                'enabled' => true,
+                'validation' => 'required|min:5|max:20',
+                'service_field_data' => new stdClass,
+            ],
+            //BREB POSTPAID
+            [
+                'service_id' => Business::service()->list(['service_slug' => 'dpdc_postpaid'])->first()->id,
+                'name' => 'bill_month',
+                'label' => 'Bill Month',
+                'type' => 'select',
+                'options' => [
+                    ['attribute' => '01', 'label' => 'January'],
+                    ['attribute' => '02', 'label' => 'February'],
+                    ['attribute' => '03', 'label' => 'March'],
+                    ['attribute' => '04', 'label' => 'April'],
+                    ['attribute' => '05', 'label' => 'May'],
+                    ['attribute' => '06', 'label' => 'June'],
+                    ['attribute' => '07', 'label' => 'July'],
+                    ['attribute' => '08', 'label' => 'August'],
+                    ['attribute' => '09', 'label' => 'September'],
+                    ['attribute' => '10', 'label' => 'October'],
+                    ['attribute' => '11', 'label' => 'November'],
+                    ['attribute' => '12', 'label' => 'December'],
+                ],
+                'value' => '',
+                'hint' => '',
+                'required' => true,
+                'reserved' => true,
+                'enabled' => true,
+                'validation' => 'required|size:2|string|in:01,02,03,04,05,06,07,08,09,10,11,12',
+                'service_field_data' => new stdClass,
+            ],
+            [
+                'service_id' => Business::service()->list(['service_slug' => 'dpdc_postpaid'])->first()->id,
+                'name' => 'bill_year',
+                'label' => 'Bill Year',
+                'type' => 'select-year',
+                'options' => [],
+                'value' => '',
+                'hint' => '',
+                'required' => true,
+                'reserved' => true,
+                'enabled' => true,
+                'validation' => 'required|min:5|max:20',
+                'service_field_data' => [
+                    'min' => '2023',
+                ],
+            ],
+            [
+                'service_id' => Business::service()->list(['service_slug' => 'dpdc_postpaid'])->first()->id,
+                'name' => 'account_number',
+                'label' => 'Account code',
+                'type' => 'text',
+                'options' => [],
+                'value' => '',
+                'hint' => '',
+                'required' => true,
+                'reserved' => true,
+                'enabled' => true,
+                'validation' => 'required|min:5|max:20',
+                'service_field_data' => new stdClass,
+            ],
+            [
+                'service_id' => Business::service()->list(['service_slug' => 'west_zone_prepaid'])->first()->id,
+                'name' => 'account_number',
                 'label' => 'Account Number',
                 'type' => 'text',
                 'options' => [],
@@ -421,7 +552,7 @@ class PayBillSeeder extends Seeder
             //DHAKA WASA
             [
                 'service_id' => Business::service()->list(['service_slug' => 'dhaka_wasa'])->first()->id,
-                'name' => 'bll_no',
+                'name' => 'bill_number',
                 'label' => 'Bill Number',
                 'type' => 'text',
                 'options' => [],
@@ -436,7 +567,7 @@ class PayBillSeeder extends Seeder
             //KHULNA WASA
             [
                 'service_id' => Business::service()->list(['service_slug' => 'khulna_wasa'])->first()->id,
-                'name' => 'bll_no',
+                'name' => 'bill_number',
                 'label' => 'Bill Number',
                 'type' => 'text',
                 'options' => [],
@@ -468,7 +599,7 @@ class PayBillSeeder extends Seeder
             //CHATTOGRAM WASA
             [
                 'service_id' => Business::service()->list(['service_slug' => 'chattogram_wasa'])->first()->id,
-                'name' => 'bll_no',
+                'name' => 'bill_number',
                 'label' => 'Bill Number',
                 'type' => 'text',
                 'options' => [],
@@ -483,7 +614,7 @@ class PayBillSeeder extends Seeder
             //JALALABAD GAS
             [
                 'service_id' => Business::service()->list(['service_slug' => 'jalalabad_gas'])->first()->id,
-                'name' => 'bllr_accno',
+                'name' => 'account_number',
                 'label' => 'Account Number',
                 'type' => 'text',
                 'options' => [],
@@ -497,7 +628,7 @@ class PayBillSeeder extends Seeder
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'jalalabad_gas'])->first()->id,
-                'name' => 'bill_mobno',
+                'name' => 'mobile_number',
                 'label' => 'Mobile Number',
                 'type' => 'text',
                 'options' => [],
@@ -512,7 +643,7 @@ class PayBillSeeder extends Seeder
             //TITAS GAS
             [
                 'service_id' => Business::service()->list(['service_slug' => 'titas_gas'])->first()->id,
-                'name' => 'bll_no',
+                'name' => 'bill_number',
                 'label' => 'Bill Number',
                 'type' => 'text',
                 'options' => [],
@@ -526,7 +657,7 @@ class PayBillSeeder extends Seeder
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'titas_gas_metered'])->first()->id,
-                'name' => 'bll_no',
+                'name' => 'bill_number',
                 'label' => 'Bill Number',
                 'type' => 'text',
                 'options' => [],
@@ -541,7 +672,7 @@ class PayBillSeeder extends Seeder
             //BAKHRABAD GAS
             [
                 'service_id' => Business::service()->list(['service_slug' => 'bakhrabad_gas'])->first()->id,
-                'name' => 'bllr_accno',
+                'name' => 'account_number',
                 'label' => 'Customer ONLINE code',
                 'type' => 'text',
                 'options' => [],
@@ -555,7 +686,7 @@ class PayBillSeeder extends Seeder
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'bakhrabad_gas'])->first()->id,
-                'name' => 'bill_mobno',
+                'name' => 'mobile_number',
                 'label' => 'ONLINE REGISTERED Mobile Number',
                 'type' => 'text',
                 'options' => [],
@@ -587,7 +718,7 @@ class PayBillSeeder extends Seeder
             //PASCHIMANCHAL GAS
             [
                 'service_id' => Business::service()->list(['service_slug' => 'paschimanchal_gas'])->first()->id,
-                'name' => 'bllr_accno',
+                'name' => 'account_number',
                 'label' => 'Account Number',
                 'type' => 'text',
                 'options' => [],
@@ -601,7 +732,7 @@ class PayBillSeeder extends Seeder
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'paschimanchal_gas'])->first()->id,
-                'name' => 'bill_mobno',
+                'name' => 'mobile_number',
                 'label' => 'Mobile Number',
                 'type' => 'text',
                 'options' => [],
