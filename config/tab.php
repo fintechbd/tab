@@ -46,7 +46,7 @@ return [
     | This value will be used across systems where a repository instance is needed
     */
     'providers' => [
-        'sslutil' => [
+        'sslvr' => [
             'mode' => 'sandbox',
             'driver' => Fintech\Tab\Vendors\SSLUtility::class,
             'live' => [
