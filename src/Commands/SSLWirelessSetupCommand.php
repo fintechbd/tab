@@ -5,9 +5,9 @@ namespace Fintech\Tab\Commands;
 use Fintech\Core\Facades\Core;
 use Illuminate\Console\Command;
 
-class SSLVRSetupCommand extends Command
+class SSLWirelessSetupCommand extends Command
 {
-    public $signature = 'tab:ssvr-setup';
+    public $signature = 'tab:sslwireless-setup';
 
     public $description = 'install/update required fields for SSL Wireless utility api';
 

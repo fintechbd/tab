@@ -4,7 +4,7 @@ namespace Fintech\Tab;
 
 use Fintech\Core\Traits\RegisterPackageTrait;
 use Fintech\Tab\Commands\InstallCommand;
-use Fintech\Tab\Commands\SSLVRSetupCommand;
+use Fintech\Tab\Commands\SSLWirelessSetupCommand;
 use Fintech\Tab\Providers\RepositoryServiceProvider;
 use Illuminate\Support\ServiceProvider;
 
@@ -54,7 +54,7 @@ class TabServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 InstallCommand::class,
-                SSLVRSetupCommand::class,
+                SSLWirelessSetupCommand::class,
             ]);
         }
     }
