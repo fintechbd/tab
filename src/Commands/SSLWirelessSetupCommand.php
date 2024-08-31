@@ -14,7 +14,7 @@ class SSLWirelessSetupCommand extends Command
             'service_setting_field_name' => 'utility_auth_key',
             'service_setting_type_field' => 'text',
             'service_setting_feature' => 'SSLVR Unique Auth Key',
-            'enabled' => true
+            'enabled' => true,
         ],
         [
             'service_setting_type' => 'service_stat',
@@ -22,10 +22,12 @@ class SSLWirelessSetupCommand extends Command
             'service_setting_field_name' => 'utility_secret_key',
             'service_setting_type_field' => 'text',
             'service_setting_feature' => 'SSLVR Unique Secret Key',
-            'enabled' => true
+            'enabled' => true,
         ],
     ];
+
     public $signature = 'tab:sslwireless-setup';
+
     public $description = 'install/update required fields for SSL Wireless utility api';
 
     public function handle(): int
@@ -57,7 +59,6 @@ class SSLWirelessSetupCommand extends Command
 
         $bar->start();
 
-
         foreach (self::SERVICE_STAT_SETTINGS as $setting) {
 
             $serviceSetting = \Fintech\Business\Facades\Business::serviceSetting()
@@ -81,14 +82,14 @@ class SSLWirelessSetupCommand extends Command
 
     private function addServiceVendor(): void
     {
-        $dir = __DIR__ . '/../../resources/img/service_vendor/';
+        $dir = __DIR__.'/../../resources/img/service_vendor/';
 
         $vendor = [
             'service_vendor_name' => 'SSL Wireless',
             'service_vendor_slug' => 'sslwireless',
             'service_vendor_data' => [],
-            'logo_png' => 'data:image/png;base64,' . base64_encode(file_get_contents("{$dir}/logo_png/ssl-wireless.png")),
-            'logo_svg' => 'data:image/svg+xml;base64,' . base64_encode(file_get_contents("{$dir}/logo_svg/ssl-wireless.svg")),
+            'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents("{$dir}/logo_png/ssl-wireless.png")),
+            'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents("{$dir}/logo_svg/ssl-wireless.svg")),
             'enabled' => false,
         ];
 

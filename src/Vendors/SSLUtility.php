@@ -140,7 +140,7 @@ class SSLUtility implements BillPayment
             'transaction_id' => $order->order_data[''],
             'operator_id' => self::OPERATORS[$order->order_data['']],
             'recipient_msisdn' => str_replace('+88', '', $order->order_data['']),
-            'amount' => (int)$order->amount,
+            'amount' => (int) $order->amount,
             'connection_type' => self::CONNECTION_TYPE[$order->order_data['']],
             'utility_auth_key' => $this->options[$order->order_data['']]['utility_auth_key'],
             'utility_secret_key' => $this->options[$order->order_data['']]['utility_secret_key'],

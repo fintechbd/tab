@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @method static PayBillService payBill()
  * @method static AssignVendorService assignVendor()
- * // Crud Service Method Point Do not Remove //
+ *                                                   // Crud Service Method Point Do not Remove //
  *
  * @see \Fintech\Tab\Tab
  */
