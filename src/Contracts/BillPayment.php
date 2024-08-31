@@ -4,7 +4,8 @@ namespace Fintech\Tab\Contracts;
 
 use Fintech\Core\Abstracts\BaseModel;
 
-interface BillPayment {
+interface BillPayment
+{
     /**
      * Method to make a request to the utility payment service provider
      * for a quotation of the order. that include charge, fee,

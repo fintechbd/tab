@@ -7,10 +7,6 @@ use Illuminate\Console\Command;
 
 class SSLWirelessSetupCommand extends Command
 {
-    public $signature = 'tab:sslwireless-setup';
-
-    public $description = 'install/update required fields for SSL Wireless utility api';
-
     const SERVICE_STAT_SETTINGS = [
         [
             'service_setting_type' => 'service_stat',
@@ -29,6 +25,8 @@ class SSLWirelessSetupCommand extends Command
             'enabled' => true
         ],
     ];
+    public $signature = 'tab:sslwireless-setup';
+    public $description = 'install/update required fields for SSL Wireless utility api';
 
     public function handle(): int
     {
