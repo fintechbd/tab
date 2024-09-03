@@ -2,6 +2,7 @@
 
 namespace Fintech\Tab\Vendors;
 
+use Fintech\Business\Facades\Business;
 use Fintech\Core\Abstracts\BaseModel;
 use Fintech\Tab\Contracts\BillPayment;
 use Illuminate\Http\Client\PendingRequest;
@@ -104,7 +105,7 @@ class SSLUtility implements BillPayment
      */
     public function __construct()
     {
-        $this->config = config('fintech.tab.providers.ssvr');
+        $this->config = config('fintech.tab.providers.sslwireless');
 
         if ($this->config['mode'] === 'sandbox') {
             $this->apiUrl = $this->config[$this->status]['endpoint'];
@@ -114,8 +115,6 @@ class SSLUtility implements BillPayment
             $this->apiUrl = $this->config[$this->status]['endpoint'];
             $this->status = 'live';
         }
-
-        $this->options = $this->config['options'];
 
         $this->client = Http::withoutVerifying()
             ->baseUrl($this->apiUrl)
@@ -136,15 +135,27 @@ class SSLUtility implements BillPayment
      */
     public function requestQuote(BaseModel $order): mixed
     {
-        $params = [
-            'transaction_id' => $order->order_data[''],
-            'operator_id' => self::OPERATORS[$order->order_data['']],
-            'recipient_msisdn' => str_replace('+88', '', $order->order_data['']),
-            'amount' => (int) $order->amount,
-            'connection_type' => self::CONNECTION_TYPE[$order->order_data['']],
-            'utility_auth_key' => $this->options[$order->order_data['']]['utility_auth_key'],
-            'utility_secret_key' => $this->options[$order->order_data['']]['utility_secret_key'],
-        ];
+
+        $params = $order->order_data['pay_bill_data'];
+        $params['transaction_id'] = $order->order_number;
+        $params['utility_auth_key'] = '';
+        $params['utility_secret_key'] = '';
+
+        $serviceStat = Business::serviceStat()->list([
+            'role_id' => $order->order_data['service_stat_data']['role_id'],
+            'service_id' => $order->order_data['service_stat_data']['service_id'],
+            'source_country_id' => $order->order_data['service_stat_data']['source_country_id'],
+            'destination_country_id' => $order->order_data['service_stat_data']['destination_country_id'],
+            'service_vendor_id' => $order->order_data['service_stat_data']['service_vendor_id'],
+            'enabled' => true,
+            'paginate' => false
+        ])->first();
+
+        if ($serviceStat) {
+            $serviceStatData = $serviceStat->service_stat_data[0] ?? [];
+            $params['utility_auth_key'] = $serviceStatData['utility_auth_key'] ?? null;
+            $params['utility_secret_key'] = $serviceStatData['utility_secret_key'] ?? null;
+        }
 
         return $this->post('/bill-info', $params);
     }

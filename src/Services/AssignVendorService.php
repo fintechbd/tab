@@ -13,18 +13,38 @@ use Illuminate\Support\Facades\App;
 
 class AssignVendorService
 {
-    private $serviceVendorModel;
+    private BaseModel $serviceVendorModel;
 
     private BillPayment $serviceVendorDriver;
+
+    /**
+     * @throws TabException
+     */
+    private function initiateVendor(string $slug): void
+    {
+        $availableVendors = config('fintech.tab.providers', []);
+
+        if (!isset($availableVendors[$slug])) {
+            throw new TabException(__('tab::messages.assign_vendor.not_found', ['slug' => ucfirst($slug)]));
+        }
+
+        $this->serviceVendorModel = \Fintech\Business\Facades\Business::serviceVendor()->list(['service_vendor_slug' => $slug, 'enabled'])->first();
+
+        if (!$this->serviceVendorModel) {
+            throw (new \Illuminate\Database\Eloquent\ModelNotFoundException)->setModel(config('fintech.business.service_vendor_model'), $slug);
+        }
+
+        $this->serviceVendorDriver = App::make($availableVendors[$slug]['driver']);
+    }
 
     /**
      * @throws TabException|ErrorException
      */
     public function requestQuote(BaseModel $order): mixed
     {
-        //        $this->initiateVendor($vendor_slug);
-        //
-        //        return $this->serviceVendorDriver->requestQuote($order);
+        $this->initiateVendor($order->vendor);
+
+        return $this->serviceVendorDriver->requestQuote($order);
     }
 
     /**
@@ -35,7 +55,7 @@ class AssignVendorService
     {
         $this->initiateVendor($vendor_slug);
 
-        if (! Transaction::order()->update($order->getKey(), [
+        if (!Transaction::order()->update($order->getKey(), [
             'vendor' => $vendor_slug,
             'service_vendor_id' => $this->serviceVendorModel->getKey(),
             'status' => OrderStatus::Processing->value])) {
@@ -47,25 +67,6 @@ class AssignVendorService
         return $this->serviceVendorDriver->executeOrder($order);
     }
 
-    /**
-     * @throws TabException
-     */
-    private function initiateVendor(string $slug): void
-    {
-        $availableVendors = config('fintech.tab.providers', []);
-
-        if (! isset($availableVendors[$slug])) {
-            throw new TabException(__('tab::messages.assign_vendor.not_found', ['slug' => ucfirst($slug)]));
-        }
-
-        $this->serviceVendorModel = \Fintech\Business\Facades\Business::serviceVendor()->list(['service_vendor_slug' => $slug, 'enabled'])->first();
-
-        if (! $this->serviceVendorModel) {
-            throw (new \Illuminate\Database\Eloquent\ModelNotFoundException)->setModel(config('fintech.business.service_vendor_model'), $slug);
-        }
-
-        $this->serviceVendorDriver = App::make($availableVendors[$slug]['driver']);
-    }
 
     /**
      * @throws TabException
