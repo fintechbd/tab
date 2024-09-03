@@ -24,13 +24,13 @@ class AssignVendorService
     {
         $availableVendors = config('fintech.tab.providers', []);
 
-        if (!isset($availableVendors[$slug])) {
+        if (! isset($availableVendors[$slug])) {
             throw new TabException(__('tab::messages.assign_vendor.not_found', ['slug' => ucfirst($slug)]));
         }
 
         $this->serviceVendorModel = \Fintech\Business\Facades\Business::serviceVendor()->list(['service_vendor_slug' => $slug, 'enabled'])->first();
 
-        if (!$this->serviceVendorModel) {
+        if (! $this->serviceVendorModel) {
             throw (new \Illuminate\Database\Eloquent\ModelNotFoundException)->setModel(config('fintech.business.service_vendor_model'), $slug);
         }
 
@@ -55,7 +55,7 @@ class AssignVendorService
     {
         $this->initiateVendor($vendor_slug);
 
-        if (!Transaction::order()->update($order->getKey(), [
+        if (! Transaction::order()->update($order->getKey(), [
             'vendor' => $vendor_slug,
             'service_vendor_id' => $this->serviceVendorModel->getKey(),
             'status' => OrderStatus::Processing->value])) {
@@ -66,7 +66,6 @@ class AssignVendorService
 
         return $this->serviceVendorDriver->executeOrder($order);
     }
-
 
     /**
      * @throws TabException

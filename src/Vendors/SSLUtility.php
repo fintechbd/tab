@@ -148,7 +148,7 @@ class SSLUtility implements BillPayment
             'destination_country_id' => $order->order_data['service_stat_data']['destination_country_id'],
             'service_vendor_id' => $order->order_data['service_stat_data']['service_vendor_id'],
             'enabled' => true,
-            'paginate' => false
+            'paginate' => false,
         ])->first();
 
         if ($serviceStat) {
