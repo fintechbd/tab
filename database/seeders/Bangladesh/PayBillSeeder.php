@@ -206,7 +206,7 @@ class PayBillSeeder extends Seeder
             //DESCO PREPAID
             [
                 'service_id' => Business::service()->list(['service_slug' => 'desco_prepaid'])->first()->id,
-                'name' => 'account_number',
+                'name' => 'ac_number',
                 'label' => 'Account Number',
                 'type' => 'text',
                 'options' => [],
@@ -249,7 +249,7 @@ class PayBillSeeder extends Seeder
             //DPDC POST PAID
             [
                 'service_id' => Business::service()->list(['service_slug' => 'dpdc_postpaid'])->first()->id,
-                'name' => 'bill_month',
+                'name' => 'bill_months',
                 'label' => 'Bill Month',
                 'type' => 'select',
                 'options' => [
@@ -276,7 +276,7 @@ class PayBillSeeder extends Seeder
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'dpdc_postpaid'])->first()->id,
-                'name' => 'bill_year',
+                'name' => 'bill_years',
                 'label' => 'Bill Year',
                 'type' => 'select-year',
                 'options' => [],
@@ -292,7 +292,7 @@ class PayBillSeeder extends Seeder
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'dpdc_postpaid'])->first()->id,
-                'name' => 'account_number',
+                'name' => 'ac_number',
                 'label' => 'Account code',
                 'type' => 'text',
                 'options' => [],
@@ -307,7 +307,7 @@ class PayBillSeeder extends Seeder
             //DPDC PRE PAID
             [
                 'service_id' => Business::service()->list(['service_slug' => 'dpdc_prepaid'])->first()->id,
-                'name' => 'bill_month',
+                'name' => 'bill_months',
                 'label' => 'Bill Month',
                 'type' => 'select',
                 'options' => [
@@ -334,7 +334,7 @@ class PayBillSeeder extends Seeder
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'dpdc_prepaid'])->first()->id,
-                'name' => 'bill_year',
+                'name' => 'bill_years',
                 'label' => 'Bill Year',
                 'type' => 'select-year',
                 'options' => [],
@@ -441,28 +441,28 @@ class PayBillSeeder extends Seeder
                 'service_id' => Business::service()->list(['service_slug' => 'bpdb_prepaid'])->first()->id,
                 'name' => 'meter_no',
                 'label' => 'Meter Number',
-                'type' => 'select',
+                'type' => 'text',
                 'options' => [],
                 'value' => '',
                 'hint' => '',
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => 'required|max:50|min:1|string',
+                'validation' => 'required|max:20|min:11|string',
                 'service_field_data' => new stdClass,
             ],
             [
                 'service_id' => Business::service()->list(['service_slug' => 'bpdb_prepaid'])->first()->id,
                 'name' => 'mobile_no',
                 'label' => 'Mobile Number',
-                'type' => 'select',
+                'type' => 'text',
                 'options' => [],
                 'value' => '',
                 'hint' => '',
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => 'required|max:15|min:10|string',
+                'validation' => 'required|max:20|min:11|string',
                 'service_field_data' => new stdClass,
             ],
             [
