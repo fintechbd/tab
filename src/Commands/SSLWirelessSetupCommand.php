@@ -2,8 +2,10 @@
 
 namespace Fintech\Tab\Commands;
 
+use Fintech\Business\Facades\Business;
 use Fintech\Core\Facades\Core;
 use Illuminate\Console\Command;
+use Throwable;
 
 class SSLWirelessSetupCommand extends Command
 {
@@ -44,7 +46,7 @@ class SSLWirelessSetupCommand extends Command
 
             return self::SUCCESS;
 
-        } catch (\Throwable $th) {
+        } catch (Throwable $th) {
 
             $this->error($th->getMessage());
 
@@ -61,14 +63,14 @@ class SSLWirelessSetupCommand extends Command
 
         foreach (self::SERVICE_STAT_SETTINGS as $setting) {
 
-            $serviceSetting = \Fintech\Business\Facades\Business::serviceSetting()
+            $serviceSetting = Business::serviceSetting()
                 ->list(['service_setting_field_name' => $setting['service_setting_field_name']])->first();
 
             if ($serviceSetting) {
                 continue;
             }
 
-            if ($serviceSetting = \Fintech\Business\Facades\Business::serviceSetting()->create($setting)) {
+            if ($serviceSetting = Business::serviceSetting()->create($setting)) {
                 $this->line("Service Setting ID: {$serviceSetting->getKey()} created successful.");
             }
 
@@ -82,21 +84,21 @@ class SSLWirelessSetupCommand extends Command
 
     private function addServiceVendor(): void
     {
-        $dir = __DIR__.'/../../resources/img/service_vendor/';
+        $dir = __DIR__ . '/../../resources/img/service_vendor/';
 
         $vendor = [
             'service_vendor_name' => 'SSL Wireless',
             'service_vendor_slug' => 'sslwireless',
             'service_vendor_data' => [],
-            'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents("{$dir}/logo_png/ssl-wireless.png")),
-            'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents("{$dir}/logo_svg/ssl-wireless.svg")),
+            'logo_png' => 'data:image/png;base64,' . base64_encode(file_get_contents("{$dir}/logo_png/ssl-wireless.png")),
+            'logo_svg' => 'data:image/svg+xml;base64,' . base64_encode(file_get_contents("{$dir}/logo_svg/ssl-wireless.svg")),
             'enabled' => false,
         ];
 
-        if (\Fintech\Business\Facades\Business::serviceVendor()->list(['service_vendor_slug' => $vendor['service_vendor_slug']])->first()) {
+        if (Business::serviceVendor()->list(['service_vendor_slug' => $vendor['service_vendor_slug']])->first()) {
             $this->info('Service vendor already exists. Skipping');
         } else {
-            \Fintech\Business\Facades\Business::serviceVendor()->create($vendor);
+            Business::serviceVendor()->create($vendor);
             $this->info('Service vendor created successfully.');
         }
     }
