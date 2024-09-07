@@ -132,7 +132,6 @@ class SSLUtility implements BillPayment
      * for a quotation of the order. that include charge, fee,
      * commission and other information related to order.
      *
-     * @throws ErrorException
      */
     public function requestQuote(BaseModel $order): mixed
     {
