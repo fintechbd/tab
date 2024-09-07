@@ -13,9 +13,8 @@ class PayBillService
     /**
      * PayBillService constructor.
      */
-    public function __construct(PayBillRepository $payBillRepository)
+    public function __construct(public PayBillRepository $payBillRepository)
     {
-        $this->payBillRepository = $payBillRepository;
     }
 
     public function find($id, $onlyTrashed = false)
