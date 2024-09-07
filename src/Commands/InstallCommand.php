@@ -117,6 +117,17 @@ class InstallCommand extends Command
                     'service_type_step' => '2',
                     'enabled' => true,
                 ],
+                [
+                    'service_type_name' => 'Ticketing',
+                    'service_type_slug' => 'ticketing',
+                    'logo_svg' => $this->image_svg.'ticketing.svg',
+                    'logo_png' => $this->image_png.'ticketing.png',
+                    'service_type_is_parent' => 'yes',
+                    'service_type_is_description' => 'no',
+                    'service_type_step' => '2',
+                    'enabled' => true,
+                ],
+
             ];
             foreach ($types as $entry) {
                 Business::serviceTypeManager($entry, $parentId)->enabled()->execute();
