@@ -77,7 +77,7 @@ class WaterBillSeeder extends Seeder
             ['service_type_parent_id' => Business::serviceType()->list(['service_type_slug' => 'water'])->first()->id, 'service_type_name' => 'Dhaka WASA', 'service_type_slug' => 'dhaka_wasa', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'dhaka_wasa.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'dhaka_wasa.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
             ['service_type_parent_id' => Business::serviceType()->list(['service_type_slug' => 'water'])->first()->id, 'service_type_name' => 'Khulna WASA', 'service_type_slug' => 'khulna_wasa', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'khulna_wasa.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'khulna_wasa.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
             ['service_type_parent_id' => Business::serviceType()->list(['service_type_slug' => 'water'])->first()->id, 'service_type_name' => 'Chattogram WASA', 'service_type_slug' => 'chattogram_wasa', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'chattogram_wasa.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'chattogram_wasa.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
-            ];
+        ];
     }
 
     private function service(): array
