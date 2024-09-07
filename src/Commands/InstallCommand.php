@@ -36,7 +36,7 @@ class InstallCommand extends Command
         $this->components->task("[<fg=yellow;options=bold>{$this->module}</>] Creating system default service types", function () {
 
             $entry = [
-                'service_type_name' => 'Fund Deposit',
+                'service_type_name' => 'Bill Payment',
                 'service_type_slug' => 'bill_payment',
                 'logo_svg' => $this->image_svg.'bill_payment.svg',
                 'logo_png' => $this->image_png.'bill_payment.png',
