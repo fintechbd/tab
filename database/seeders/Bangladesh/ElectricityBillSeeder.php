@@ -2,7 +2,6 @@
 
 namespace Fintech\Tab\Seeders\Bangladesh;
 
-use Fintech\Auth\Facades\Auth;
 use Fintech\Business\Facades\Business;
 use Fintech\Core\Facades\Core;
 use Fintech\MetaData\Facades\MetaData;
@@ -44,8 +43,8 @@ class ElectricityBillSeeder extends Seeder
             [
                 'service_type_name' => 'DESCO Postpaid',
                 'service_type_slug' => 'desco_postpaid',
-                'logo_svg' => $image_svg . 'desco_postpaid.svg',
-                'logo_png' => $image_png . 'desco_postpaid.png',
+                'logo_svg' => $image_svg.'desco_postpaid.svg',
+                'logo_png' => $image_png.'desco_postpaid.png',
                 'service_type_is_parent' => 'no',
                 'service_type_is_description' => 'no',
                 'service_type_step' => '3',
@@ -53,14 +52,14 @@ class ElectricityBillSeeder extends Seeder
                 'service_stat_data' => [
                     'utility_auth_key' => 'DE151746006894272',
                     'utility_secret_key' => 'DE151746006894272',
-                ]
+                ],
             ],
             //DESCO Prepaid
             [
                 'service_type_name' => 'DESCO Prepaid',
                 'service_type_slug' => 'desco_prepaid',
-                'logo_svg' => $image_svg . 'desco_postpaid.svg',
-                'logo_png' => $image_png . 'desco_postpaid.png',
+                'logo_svg' => $image_svg.'desco_postpaid.svg',
+                'logo_png' => $image_png.'desco_postpaid.png',
                 'service_type_is_parent' => 'no',
                 'service_type_is_description' => 'no',
                 'service_type_step' => '3',
@@ -68,14 +67,14 @@ class ElectricityBillSeeder extends Seeder
                 'service_stat_data' => [
                     'utility_auth_key' => 'DE16997872503141',
                     'utility_secret_key' => 'WLNLw965LSr3qvSB',
-                ]
+                ],
             ],
             //DPDC Postpaid
             [
                 'service_type_name' => 'DPDC Postpaid',
                 'service_type_slug' => 'dpdc_postpaid',
-                'logo_svg' => $image_svg . 'dpdc_postpaid.svg',
-                'logo_png' => $image_png . 'dpdc_postpaid.png',
+                'logo_svg' => $image_svg.'dpdc_postpaid.svg',
+                'logo_png' => $image_png.'dpdc_postpaid.png',
                 'service_type_is_parent' => 'no',
                 'service_type_is_description' => 'no',
                 'service_type_step' => '3',
@@ -83,14 +82,14 @@ class ElectricityBillSeeder extends Seeder
                 'service_stat_data' => [
                     'utility_auth_key' => 'DP16030264222969',
                     'utility_secret_key' => 'wQXJaE6c5ydoxG3H',
-                ]
+                ],
             ],
             //DPDC Postpaid
             [
                 'service_type_name' => 'DPDC Prepaid',
                 'service_type_slug' => 'dpdc_prepaid',
-                'logo_svg' => $image_svg . 'dpdc_postpaid.svg',
-                'logo_png' => $image_png . 'dpdc_postpaid.png',
+                'logo_svg' => $image_svg.'dpdc_postpaid.svg',
+                'logo_png' => $image_png.'dpdc_postpaid.png',
                 'service_type_is_parent' => 'no',
                 'service_type_is_description' => 'no',
                 'service_type_step' => '3',
@@ -98,14 +97,14 @@ class ElectricityBillSeeder extends Seeder
                 'service_stat_data' => [
                     'utility_auth_key' => 'DP16775741409889',
                     'utility_secret_key' => 'bonm0/jgKnBAErRh',
-                ]
+                ],
             ],
             //NESCO Postpaid
             [
                 'service_type_name' => 'NESCO Postpaid',
                 'service_type_slug' => 'nesco_postpaid',
-                'logo_svg' => $image_svg . 'nesco_postpaid.svg',
-                'logo_png' => $image_png . 'nesco_postpaid.png',
+                'logo_svg' => $image_svg.'nesco_postpaid.svg',
+                'logo_png' => $image_png.'nesco_postpaid.png',
                 'service_type_is_parent' => 'no',
                 'service_type_is_description' => 'no',
                 'service_type_step' => '3',
@@ -113,14 +112,14 @@ class ElectricityBillSeeder extends Seeder
                 'service_stat_data' => [
                     'utility_auth_key' => 'NE15864276923960',
                     'utility_secret_key' => 'I4NvO4kH88BdW9XE',
-                ]
+                ],
             ],
             //NESCO Prepaid
             [
                 'service_type_name' => 'NESCO Prepaid',
                 'service_type_slug' => 'nesco_prepaid',
-                'logo_svg' => $image_svg . 'nesco_postpaid.svg',
-                'logo_png' => $image_png . 'nesco_postpaid.png',
+                'logo_svg' => $image_svg.'nesco_postpaid.svg',
+                'logo_png' => $image_png.'nesco_postpaid.png',
                 'service_type_is_parent' => 'no',
                 'service_type_is_description' => 'no',
                 'service_type_step' => '3',
@@ -128,14 +127,14 @@ class ElectricityBillSeeder extends Seeder
                 'service_stat_data' => [
                     'utility_auth_key' => 'NE16151186585379',
                     'utility_secret_key' => 'PsilgetRO/wYIkPg',
-                ]
+                ],
             ],
             //NESCO Prepaid
             [
                 'service_type_name' => 'West Zone Postpaid',
                 'service_type_slug' => 'west_zone_postpaid',
-                'logo_svg' => $image_svg . 'west_zone_postpaid.svg',
-                'logo_png' => $image_png . 'west_zone_postpaid.png',
+                'logo_svg' => $image_svg.'west_zone_postpaid.svg',
+                'logo_png' => $image_png.'west_zone_postpaid.png',
                 'service_type_is_parent' => 'no',
                 'service_type_is_description' => 'no',
                 'service_type_step' => '3',
@@ -143,14 +142,14 @@ class ElectricityBillSeeder extends Seeder
                 'service_stat_data' => [
                     'utility_auth_key' => 'DE151746006894272',
                     'utility_secret_key' => 'DE151746006894272',
-                ]
+                ],
             ],
             //West Zone Prepaid
             [
                 'service_type_name' => 'West Zone Prepaid',
                 'service_type_slug' => 'west_zone_prepaid',
-                'logo_svg' => $image_svg . 'west_zone_postpaid.svg',
-                'logo_png' => $image_png . 'west_zone_postpaid.png',
+                'logo_svg' => $image_svg.'west_zone_postpaid.svg',
+                'logo_png' => $image_png.'west_zone_postpaid.png',
                 'service_type_is_parent' => 'no',
                 'service_type_is_description' => 'no',
                 'service_type_step' => '3',
@@ -158,14 +157,14 @@ class ElectricityBillSeeder extends Seeder
                 'service_stat_data' => [
                     'utility_auth_key' => '',
                     'utility_secret_key' => '',
-                ]
+                ],
             ],
             //BPDB Prepaid
             [
                 'service_type_name' => 'BPDB Prepaid',
                 'service_type_slug' => 'bpdb_prepaid',
-                'logo_svg' => $image_svg . 'bpdb.svg',
-                'logo_png' => $image_png . 'bpdb.png',
+                'logo_svg' => $image_svg.'bpdb.svg',
+                'logo_png' => $image_png.'bpdb.png',
                 'service_type_is_parent' => 'no',
                 'service_type_is_description' => 'no',
                 'service_type_step' => '3',
@@ -173,14 +172,14 @@ class ElectricityBillSeeder extends Seeder
                 'service_stat_data' => [
                     'utility_auth_key' => 'BP17048618656604',
                     'utility_secret_key' => 'Tv05Xd4NEFref4S7',
-                ]
+                ],
             ],
             //BREB Postpaid
             [
                 'service_type_name' => 'BREB Postpaid',
                 'service_type_slug' => 'breb_postpaid',
-                'logo_svg' => $image_svg . 'breb.svg',
-                'logo_png' => $image_png . 'breb.png',
+                'logo_svg' => $image_svg.'breb.svg',
+                'logo_png' => $image_png.'breb.png',
                 'service_type_is_parent' => 'no',
                 'service_type_is_description' => 'no',
                 'service_type_step' => '3',
@@ -188,14 +187,14 @@ class ElectricityBillSeeder extends Seeder
                 'service_stat_data' => [
                     'utility_auth_key' => 'BR16713629651374',
                     'utility_secret_key' => 'A2BonKfvRke8J46M',
-                ]
+                ],
             ],
             //BREB Prepaid
             [
                 'service_type_name' => 'BREB Prepaid',
                 'service_type_slug' => 'breb_prepaid',
-                'logo_svg' => $image_svg . 'breb.svg',
-                'logo_png' => $image_png . 'breb.png',
+                'logo_svg' => $image_svg.'breb.svg',
+                'logo_png' => $image_png.'breb.png',
                 'service_type_is_parent' => 'no',
                 'service_type_is_description' => 'no',
                 'service_type_step' => '3',
@@ -203,7 +202,7 @@ class ElectricityBillSeeder extends Seeder
                 'service_stat_data' => [
                     'utility_auth_key' => 'BR16304874421274',
                     'utility_secret_key' => 'GIxlvxXb6wGqwaG1',
-                ]
+                ],
             ],
         ];
     }
@@ -347,13 +346,13 @@ class ElectricityBillSeeder extends Seeder
                 'label' => 'Pay Channel',
                 'type' => 'select',
                 'options' => [
-                    ['attribute' => "1", 'label' => "Bank Branch"],
-                    ['attribute' => "2", 'label' => "Mobile Banking(USSD)"],
-                    ['attribute' => "3", 'label' => "Agent Banking"],
-                    ['attribute' => "4", 'label' => "Internet banking"],
-                    ['attribute' => "5", 'label' => "Mobile Apps"],
-                    ['attribute' => "6", 'label' => "Payment Gateway"],
-                    ['attribute' => "7", 'label' => "Others"]
+                    ['attribute' => '1', 'label' => 'Bank Branch'],
+                    ['attribute' => '2', 'label' => 'Mobile Banking(USSD)'],
+                    ['attribute' => '3', 'label' => 'Agent Banking'],
+                    ['attribute' => '4', 'label' => 'Internet banking'],
+                    ['attribute' => '5', 'label' => 'Mobile Apps'],
+                    ['attribute' => '6', 'label' => 'Payment Gateway'],
+                    ['attribute' => '7', 'label' => 'Others'],
                 ],
                 'value' => '',
                 'hint' => 'Select Pay Channel',
@@ -532,7 +531,7 @@ class ElectricityBillSeeder extends Seeder
                 'type' => 'select',
                 'options' => [
                     ['attribute' => 'PREPAID', 'label' => 'Prepaid'],
-//                  ['attribute' => 'POSTPAID', 'label' => 'Postpaid'],
+                    //                  ['attribute' => 'POSTPAID', 'label' => 'Postpaid'],
                 ],
                 'value' => 'PREPAID',
                 'hint' => '',
@@ -658,7 +657,7 @@ class ElectricityBillSeeder extends Seeder
                 'type' => 'select',
                 'options' => [
                     ['attribute' => 'PREPAID', 'label' => 'Prepaid'],
-//                  ['attribute' => 'POSTPAID', 'label' => 'Postpaid'],
+                    //                  ['attribute' => 'POSTPAID', 'label' => 'Postpaid'],
                 ],
                 'value' => '',
                 'hint' => '',
@@ -674,5 +673,4 @@ class ElectricityBillSeeder extends Seeder
             Business::serviceField()->create($service_field);
         }
     }
-
 }
