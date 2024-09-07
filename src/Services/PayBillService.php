@@ -13,9 +13,7 @@ class PayBillService
     /**
      * PayBillService constructor.
      */
-    public function __construct(public PayBillRepository $payBillRepository)
-    {
-    }
+    public function __construct(public PayBillRepository $payBillRepository) {}
 
     public function find($id, $onlyTrashed = false)
     {

@@ -131,7 +131,6 @@ class SSLUtility implements BillPayment
      * Method to make a request to the topup service provider
      * for a quotation of the order. that include charge, fee,
      * commission and other information related to order.
-     *
      */
     public function requestQuote(BaseModel $order): mixed
     {
