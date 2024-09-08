@@ -151,7 +151,7 @@ class SSLUtility implements BillPayment
         ])->first();
 
         if ($serviceStat) {
-            $serviceStatData = $serviceStat->service_stat_data[0] ?? [];
+            $serviceStatData = $serviceStat->service_stat_data ?? [];
             $params['utility_auth_key'] = $serviceStatData['utility_auth_key'] ?? null;
             $params['utility_secret_key'] = $serviceStatData['utility_secret_key'] ?? null;
         }
