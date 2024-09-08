@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Http;
 class SSLUtility implements BillPayment
 {
     const ERROR_MESSAGES = [
+        000 => 'API response success from utility',
         100 => 'The Recharge request has been created but is waiting for initiation.',
         200 => 'Recharge request has been initiated for processing.',
         201 => 'Processing has started.',
@@ -76,6 +77,7 @@ class SSLUtility implements BillPayment
         398 => 'General Exception.',
         399 => 'Unknown Status due to Technical fault or any other general or critical error.',
         400 => 'This Recharge has been canceled by the client.',
+        403 => 'Forbidden.',
         800 => 'Test Successful Recharge. Recharge is marked as complete for testing purpose.',
         900 => 'Successful Recharge.',
         999 => 'Other.',
@@ -161,7 +163,31 @@ class SSLUtility implements BillPayment
 
     private function post($url = '', $payload = [])
     {
-        return $this->client->post($url, $payload)->json();
+        $response = $this->client->post($url, $payload)->json();
+
+        if ($response['status'] == 'api_success') {
+            return [
+                'status' => true,
+                'amount' => $response['data']['total_amount'],
+                'message' => self::ERROR_MESSAGES[$response['status_code']],
+                'origin_message' => $response,
+                'data' => [
+                    'bill_amount' => $response['data']['bill_amount'],
+                    'total_amount' => $response['data']['total_amount'],
+                ]
+            ];
+        }
+
+        return [
+            'status' => false,
+            'amount' => null,
+            'message' => self::ERROR_MESSAGES[$response['status_code']],
+            'origin_message' => $response,
+            'data' => [
+                'bill_amount' => null,
+                'total_amount' => null,
+            ]
+        ];
     }
 
     /**

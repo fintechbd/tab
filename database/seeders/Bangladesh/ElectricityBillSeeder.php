@@ -222,7 +222,7 @@ class ElectricityBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => 'required|min:1|max:50|integer',
+                'validation' => 'required|min:1|max:50|string|numeric',
                 'service_field_data' => new stdClass,
             ],
             //DESCO PREPAID
@@ -237,7 +237,7 @@ class ElectricityBillSeeder extends Seeder
                 'required' => true,
                 'reserved' => true,
                 'enabled' => true,
-                'validation' => 'required|min:1|max:50|integer',
+                'validation' => 'required|min:1|max:50|string|numeric',
                 'service_field_data' => new stdClass,
             ],
             [
