@@ -174,7 +174,7 @@ class SSLUtility implements BillPayment
                 'data' => [
                     'bill_amount' => $response['data']['bill_amount'],
                     'total_amount' => $response['data']['total_amount'],
-                ]
+                ],
             ];
         }
 
@@ -186,7 +186,7 @@ class SSLUtility implements BillPayment
             'data' => [
                 'bill_amount' => null,
                 'total_amount' => null,
-            ]
+            ],
         ];
     }
 
