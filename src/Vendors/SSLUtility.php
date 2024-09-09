@@ -5,7 +5,6 @@ namespace Fintech\Tab\Vendors;
 use ErrorException;
 use Fintech\Business\Facades\Business;
 use Fintech\Core\Abstracts\BaseModel;
-use Fintech\Core\Traits\SSLWirelessErrorMessage;
 use Fintech\Tab\Contracts\BillPayment;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Http;
@@ -107,7 +106,7 @@ class SSLUtility implements BillPayment
             'status' => false,
             'amount' => null,
             'message' => $response['status_title'] ?? null,
-            'origin_message' => $response
+            'origin_message' => $response,
         ];
     }
 
