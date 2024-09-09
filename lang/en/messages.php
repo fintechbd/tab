@@ -20,6 +20,6 @@ return [
         'failed' => 'Unable to assign order to requested vendor [:slug].',
         'release_failed' => 'There\'s been an error. while :model with ID::id failed to release.',
         'success' => 'Successfully assigned order to requested vendor [:slug].',
-        'quote_failed' => 'Something went wrong. Please try again later.'
+        'quote_failed' => 'Something went wrong. Please try again later.',
     ],
 ];
