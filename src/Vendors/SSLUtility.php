@@ -12,8 +12,6 @@ use Illuminate\Support\Facades\Http;
 
 class SSLUtility implements BillPayment
 {
-    use SSLWirelessErrorMessage;
-
     /**
      * SSLVirtualRecharge configuration.
      *
@@ -99,25 +97,17 @@ class SSLUtility implements BillPayment
         if ($response['status'] == 'api_success') {
             return [
                 'status' => true,
-                'amount' => $response['data']['total_amount'],
-                'message' => $this->errorMessage($response['status_code']),
+                'amount' => intval($response['data']['total_amount']),
+                'message' => $response['status_title'] ?? null,
                 'origin_message' => $response,
-                'data' => [
-                    'bill_amount' => $response['data']['bill_amount'],
-                    'total_amount' => $response['data']['total_amount'],
-                ],
             ];
         }
 
         return [
             'status' => false,
             'amount' => null,
-            'message' => $this->errorMessage($response['status_code']),
-            'origin_message' => $response,
-            'data' => [
-                'bill_amount' => null,
-                'total_amount' => null,
-            ],
+            'message' => $response['status_title'] ?? null,
+            'origin_message' => $response
         ];
     }
 
