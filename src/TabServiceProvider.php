@@ -47,6 +47,8 @@ class TabServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'tab');
 
+        $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
+
         $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/tab'),
         ]);
