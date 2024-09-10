@@ -21,9 +21,12 @@ class ElectricityBillSeeder extends Seeder
 
             $distCountries = MetaData::country()->servingIds(['iso2' => 'BD']);
 
+            $vendor = Business::serviceVendor()->list(['service_vendor_slug' => 'sslwireless'])->first();
+
             foreach ($this->data() as $entry) {
                 Business::serviceTypeManager($entry, $parent)
                     ->hasService()
+                    ->vendor($vendor)
                     ->distCountries($distCountries)
                     ->enabled()
                     ->execute();
