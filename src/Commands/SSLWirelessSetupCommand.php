@@ -84,14 +84,14 @@ class SSLWirelessSetupCommand extends Command
 
     private function addServiceVendor(): void
     {
-        $dir = __DIR__ . '/../../resources/img/service_vendor/';
+        $dir = __DIR__.'/../../resources/img/service_vendor/';
 
         $vendor = [
             'service_vendor_name' => 'SSL Wireless',
             'service_vendor_slug' => 'sslwireless',
             'service_vendor_data' => [],
-            'logo_png' => 'data:image/png;base64,' . base64_encode(file_get_contents("{$dir}/logo_png/ssl-wireless.png")),
-            'logo_svg' => 'data:image/svg+xml;base64,' . base64_encode(file_get_contents("{$dir}/logo_svg/ssl-wireless.svg")),
+            'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents("{$dir}/logo_png/ssl-wireless.png")),
+            'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents("{$dir}/logo_svg/ssl-wireless.svg")),
             'enabled' => false,
         ];
 
