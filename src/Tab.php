@@ -7,12 +7,12 @@ use Fintech\Tab\Services\PayBillService;
 
 class Tab
 {
-    public function payBill(): PayBillService
+    public function payBill()
     {
         return app(PayBillService::class);
     }
 
-    public function assignVendor(): AssignVendorService
+    public function assignVendor()
     {
         return app(AssignVendorService::class);
     }

@@ -8,7 +8,7 @@ use Fintech\Transaction\Facades\Transaction;
 /**
  * Class PayBillService
  */
-class PayBillService
+class PayBillService extends \Fintech\Core\Abstracts\Service
 {
     /**
      * PayBillService constructor.
