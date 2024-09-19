@@ -7,6 +7,7 @@ use Fintech\Business\Facades\Business;
 use Fintech\Core\Abstracts\BaseModel;
 use Fintech\Core\Enums\Transaction\OrderStatus;
 use Fintech\Core\Exceptions\UpdateOperationException;
+use Fintech\Core\Exceptions\VendorNotFoundException;
 use Fintech\Tab\Contracts\BillPayment;
 use Fintech\Tab\Exceptions\TabException;
 use Fintech\Transaction\Facades\Transaction;
@@ -32,14 +33,14 @@ class AssignVendorService
     }
 
     /**
-     * @throws TabException
+     * @throws VendorNotFoundException
      */
     private function initiateVendor(string $slug): void
     {
         $availableVendors = config('fintech.tab.providers', []);
 
         if (! isset($availableVendors[$slug])) {
-            throw new TabException(__('tab::messages.assign_vendor.not_found', ['slug' => ucfirst($slug)]));
+            throw new VendorNotFoundException(ucfirst($slug));
         }
 
         $this->serviceVendorModel = Business::serviceVendor()->findWhere(['service_vendor_slug' => $slug, 'enabled' => true]);
