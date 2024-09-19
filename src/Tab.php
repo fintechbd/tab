@@ -8,13 +8,13 @@ use Fintech\Tab\Services\PayBillService;
 class Tab
 {
     public function payBill($filters = null)
-{
-	return \singleton(PayBillService::class, $filters);
+    {
+        return \singleton(PayBillService::class, $filters);
     }
 
     public function assignVendor($filters = null)
-{
-	return \singleton(AssignVendorService::class, $filters);
+    {
+        return \singleton(AssignVendorService::class, $filters);
     }
 
     //** Crud Service Method Point Do not Remove **//
