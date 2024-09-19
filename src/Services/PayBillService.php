@@ -8,8 +8,10 @@ use Fintech\Transaction\Facades\Transaction;
 /**
  * Class PayBillService
  */
-class PayBillService extends \Fintech\Core\Abstracts\Service
+class PayBillService
 {
+    use \Fintech\Core\Traits\HasFindWhereSearch;
+
     /**
      * PayBillService constructor.
      */
