@@ -8,8 +8,8 @@ use Fintech\Tab\Services\PayBillService;
 class Tab
 {
     public function payBill($filters = null)
-{
-	return \singleton(PayBillService::class, $filters);
+    {
+        return \singleton(PayBillService::class, $filters);
     }
 
     public function assignVendor()
