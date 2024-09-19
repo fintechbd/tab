@@ -58,7 +58,7 @@ class InstallCommand extends Command
     private function addTabSubServices(): void
     {
         $this->task('Populating Bill Payment Sub-Service Types', function () {
-            $parentId = Business::serviceType()->list(['service_type_slug' => 'bill_payment'])->first()->id;
+            $parentId = Business::serviceType()->findWhere(['service_type_slug' => 'bill_payment'])->id;
             $types = [
                 [
                     'service_type_name' => 'Electricity',

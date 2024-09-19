@@ -25,7 +25,7 @@ class GasBillSeeder extends Seeder
                     unset($entry['serviceTypeChildren']);
                 }
 
-                $findServiceTypeModel = Business::serviceType()->list(['service_type_slug' => $entry['service_type_slug']])->first();
+                $findServiceTypeModel = Business::serviceType()->findWhere(['service_type_slug' => $entry['service_type_slug']]);
                 if ($findServiceTypeModel) {
                     $serviceTypeModel = Business::serviceType()->update($findServiceTypeModel->id, $entry);
                 } else {
@@ -74,13 +74,13 @@ class GasBillSeeder extends Seeder
         $image_png = __DIR__.'/../../../resources/img/service_type/logo_png/';
 
         return [
-            ['service_type_parent_id' => Business::serviceType()->list(['service_type_slug' => 'gas'])->first()->id, 'service_type_name' => 'Jalalabad Gas', 'service_type_slug' => 'jalalabad_gas', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'jalalabad_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'jalalabad_gas.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
-            ['service_type_parent_id' => Business::serviceType()->list(['service_type_slug' => 'gas'])->first()->id, 'service_type_name' => 'Titas Gas', 'service_type_slug' => 'titas_gas', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'titas_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'titas_gas.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
-            ['service_type_parent_id' => Business::serviceType()->list(['service_type_slug' => 'gas'])->first()->id, 'service_type_name' => 'Titas Gas Metered', 'service_type_slug' => 'titas_gas_metered', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'titas_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'titas_gas.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
-            ['service_type_parent_id' => Business::serviceType()->list(['service_type_slug' => 'gas'])->first()->id, 'service_type_name' => 'Bakhrabad Gas', 'service_type_slug' => 'bakhrabad_gas', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'bakhrabad_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'bakhrabad_gas.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
-            ['service_type_parent_id' => Business::serviceType()->list(['service_type_slug' => 'gas'])->first()->id, 'service_type_name' => 'Paschimanchal Gas', 'service_type_slug' => 'paschimanchal_gas', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'paschimanchal_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'paschimanchal_gas.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
-            ['service_type_parent_id' => Business::serviceType()->list(['service_type_slug' => 'gas'])->first()->id, 'service_type_name' => 'Karnaphuli Gas Metered', 'service_type_slug' => 'karnaphuli_gas_metered', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'karnaphuli_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'karnaphuli_gas.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
-            ['service_type_parent_id' => Business::serviceType()->list(['service_type_slug' => 'gas'])->first()->id, 'service_type_name' => 'Karnaphuli Gas Non-Metered', 'service_type_slug' => 'karnaphuli_gas_non_metered', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'karnaphuli_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'karnaphuli_gas.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
+            ['service_type_parent_id' => Business::serviceType()->findWhere(['service_type_slug' => 'gas'])->id, 'service_type_name' => 'Jalalabad Gas', 'service_type_slug' => 'jalalabad_gas', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'jalalabad_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'jalalabad_gas.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
+            ['service_type_parent_id' => Business::serviceType()->findWhere(['service_type_slug' => 'gas'])->id, 'service_type_name' => 'Titas Gas', 'service_type_slug' => 'titas_gas', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'titas_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'titas_gas.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
+            ['service_type_parent_id' => Business::serviceType()->findWhere(['service_type_slug' => 'gas'])->id, 'service_type_name' => 'Titas Gas Metered', 'service_type_slug' => 'titas_gas_metered', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'titas_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'titas_gas.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
+            ['service_type_parent_id' => Business::serviceType()->findWhere(['service_type_slug' => 'gas'])->id, 'service_type_name' => 'Bakhrabad Gas', 'service_type_slug' => 'bakhrabad_gas', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'bakhrabad_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'bakhrabad_gas.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
+            ['service_type_parent_id' => Business::serviceType()->findWhere(['service_type_slug' => 'gas'])->id, 'service_type_name' => 'Paschimanchal Gas', 'service_type_slug' => 'paschimanchal_gas', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'paschimanchal_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'paschimanchal_gas.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
+            ['service_type_parent_id' => Business::serviceType()->findWhere(['service_type_slug' => 'gas'])->id, 'service_type_name' => 'Karnaphuli Gas Metered', 'service_type_slug' => 'karnaphuli_gas_metered', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'karnaphuli_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'karnaphuli_gas.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
+            ['service_type_parent_id' => Business::serviceType()->findWhere(['service_type_slug' => 'gas'])->id, 'service_type_name' => 'Karnaphuli Gas Non-Metered', 'service_type_slug' => 'karnaphuli_gas_non_metered', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'karnaphuli_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'karnaphuli_gas.png')), 'service_type_is_parent' => 'no', 'service_type_is_description' => 'no', 'service_type_step' => '3', 'enabled' => true],
         ];
     }
 
@@ -92,41 +92,41 @@ class GasBillSeeder extends Seeder
         $vendor_id = config('fintech.business.default_vendor', 1);
 
         return [
-            ['utility_auth_key' => 'DE151746006894272', 'utility_secret_key' => 'DE151746006894272', 'service_type_id' => Business::serviceType()->list(['service_type_slug' => 'desco_postpaid'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'DESCO Postpaid', 'service_slug' => 'desco_postpaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'desco_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'desco_postpaid.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 1, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
-            ['utility_auth_key' => 'DE16997872503141', 'utility_secret_key' => 'WLNLw965LSr3qvSB', 'service_type_id' => Business::serviceType()->list(['service_type_slug' => 'desco_prepaid'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'DESCO Prepaid', 'service_slug' => 'desco_prepaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'desco_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'desco_postpaid.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 2, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
+            ['utility_auth_key' => 'DE151746006894272', 'utility_secret_key' => 'DE151746006894272', 'service_type_id' => Business::serviceType()->findWhere(['service_type_slug' => 'desco_postpaid'])->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'DESCO Postpaid', 'service_slug' => 'desco_postpaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'desco_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'desco_postpaid.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 1, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
+            ['utility_auth_key' => 'DE16997872503141', 'utility_secret_key' => 'WLNLw965LSr3qvSB', 'service_type_id' => Business::serviceType()->findWhere(['service_type_slug' => 'desco_prepaid'])->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'DESCO Prepaid', 'service_slug' => 'desco_prepaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'desco_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'desco_postpaid.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 2, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
 
-            ['utility_auth_key' => 'DP16030264222969', 'utility_secret_key' => 'wQXJaE6c5ydoxG3H', 'service_type_id' => Business::serviceType()->list(['service_type_slug' => 'dpdc_postpaid'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'DPDC Postpaid', 'service_slug' => 'dpdc_postpaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'dpdc_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'dpdc_postpaid.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 3, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
-            ['utility_auth_key' => 'DP16775741409889', 'utility_secret_key' => 'bonm0/jgKnBAErRh', 'service_type_id' => Business::serviceType()->list(['service_type_slug' => 'dpdc_prepaid'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'DPDC Prepaid', 'service_slug' => 'dpdc_prepaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'desco_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'desco_postpaid.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 4, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
+            ['utility_auth_key' => 'DP16030264222969', 'utility_secret_key' => 'wQXJaE6c5ydoxG3H', 'service_type_id' => Business::serviceType()->findWhere(['service_type_slug' => 'dpdc_postpaid'])->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'DPDC Postpaid', 'service_slug' => 'dpdc_postpaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'dpdc_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'dpdc_postpaid.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 3, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
+            ['utility_auth_key' => 'DP16775741409889', 'utility_secret_key' => 'bonm0/jgKnBAErRh', 'service_type_id' => Business::serviceType()->findWhere(['service_type_slug' => 'dpdc_prepaid'])->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'DPDC Prepaid', 'service_slug' => 'dpdc_prepaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'desco_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'desco_postpaid.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 4, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
 
-            ['utility_auth_key' => 'NE15864276923960', 'utility_secret_key' => 'I4NvO4kH88BdW9XE', 'service_type_id' => Business::serviceType()->list(['service_type_slug' => 'nesco_postpaid'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'NESCO Postpaid', 'service_slug' => 'nesco_postpaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'nesco_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'nesco_postpaid.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => 'GP ST'], 'enabled' => true],
-            ['utility_auth_key' => 'NE16151186585379', 'utility_secret_key' => 'PsilgetRO/wYIkPg', 'service_type_id' => Business::serviceType()->list(['service_type_slug' => 'nesco_prepaid'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'NESCO Prepaid', 'service_slug' => 'nesco_prepaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'nesco_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'nesco_postpaid.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
+            ['utility_auth_key' => 'NE15864276923960', 'utility_secret_key' => 'I4NvO4kH88BdW9XE', 'service_type_id' => Business::serviceType()->findWhere(['service_type_slug' => 'nesco_postpaid'])->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'NESCO Postpaid', 'service_slug' => 'nesco_postpaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'nesco_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'nesco_postpaid.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => 'GP ST'], 'enabled' => true],
+            ['utility_auth_key' => 'NE16151186585379', 'utility_secret_key' => 'PsilgetRO/wYIkPg', 'service_type_id' => Business::serviceType()->findWhere(['service_type_slug' => 'nesco_prepaid'])->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'NESCO Prepaid', 'service_slug' => 'nesco_prepaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'nesco_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'nesco_postpaid.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
 
-            ['utility_auth_key' => '', 'utility_secret_key' => '', 'service_type_id' => Business::serviceType()->list(['service_type_slug' => 'west_zone_postpaid'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'West Zone Postpaid', 'service_slug' => 'west_zone_postpaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'west_zone_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'west_zone_postpaid.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => 'GP ST'], 'enabled' => true],
-            ['utility_auth_key' => '', 'utility_secret_key' => '', 'service_type_id' => Business::serviceType()->list(['service_type_slug' => 'west_zone_prepaid'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'West Zone Prepaid', 'service_slug' => 'west_zone_prepaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'west_zone_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'west_zone_postpaid.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
+            ['utility_auth_key' => '', 'utility_secret_key' => '', 'service_type_id' => Business::serviceType()->findWhere(['service_type_slug' => 'west_zone_postpaid'])->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'West Zone Postpaid', 'service_slug' => 'west_zone_postpaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'west_zone_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'west_zone_postpaid.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => 'GP ST'], 'enabled' => true],
+            ['utility_auth_key' => '', 'utility_secret_key' => '', 'service_type_id' => Business::serviceType()->findWhere(['service_type_slug' => 'west_zone_prepaid'])->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'West Zone Prepaid', 'service_slug' => 'west_zone_prepaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'west_zone_postpaid.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'west_zone_postpaid.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
 
-            ['utility_auth_key' => 'BP17048618656604', 'utility_secret_key' => 'Tv05Xd4NEFref4S7', 'service_type_id' => Business::serviceType()->list(['service_type_slug' => 'bpdb_prepaid'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'BPDB Prepaid', 'service_slug' => 'bpdb_prepaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'bpdb.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'bpdb.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
+            ['utility_auth_key' => 'BP17048618656604', 'utility_secret_key' => 'Tv05Xd4NEFref4S7', 'service_type_id' => Business::serviceType()->findWhere(['service_type_slug' => 'bpdb_prepaid'])->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'BPDB Prepaid', 'service_slug' => 'bpdb_prepaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'bpdb.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'bpdb.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
 
-            ['utility_auth_key' => 'BR16713629651374', 'utility_secret_key' => 'A2BonKfvRke8J46M', 'service_type_id' => Business::serviceType()->list(['service_type_slug' => 'breb_postpaid'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'BREB Postpaid', 'service_slug' => 'breb_postpaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'breb.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'breb.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
-            ['utility_auth_key' => 'BR16304874421274', 'utility_secret_key' => 'GIxlvxXb6wGqwaG1', 'service_type_id' => Business::serviceType()->list(['service_type_slug' => 'breb_prepaid'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'BREB Prepaid', 'service_slug' => 'breb_prepaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'breb.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'breb.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
+            ['utility_auth_key' => 'BR16713629651374', 'utility_secret_key' => 'A2BonKfvRke8J46M', 'service_type_id' => Business::serviceType()->findWhere(['service_type_slug' => 'breb_postpaid'])->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'BREB Postpaid', 'service_slug' => 'breb_postpaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'breb.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'breb.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
+            ['utility_auth_key' => 'BR16304874421274', 'utility_secret_key' => 'GIxlvxXb6wGqwaG1', 'service_type_id' => Business::serviceType()->findWhere(['service_type_slug' => 'breb_prepaid'])->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'BREB Prepaid', 'service_slug' => 'breb_prepaid', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'breb.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'breb.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
 
-            ['utility_auth_key' => '', 'utility_secret_key' => '', 'service_type_id' => Business::serviceType()->list(['service_type_slug' => 'dhaka_wasa'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Dhaka WASA', 'service_slug' => 'dhaka_wasa', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'dhaka_wasa.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'dhaka_wasa.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
+            ['utility_auth_key' => '', 'utility_secret_key' => '', 'service_type_id' => Business::serviceType()->findWhere(['service_type_slug' => 'dhaka_wasa'])->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Dhaka WASA', 'service_slug' => 'dhaka_wasa', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'dhaka_wasa.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'dhaka_wasa.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
 
-            ['utility_auth_key' => '', 'utility_secret_key' => '', 'service_type_id' => Business::serviceType()->list(['service_type_slug' => 'khulna_wasa'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Khulna WASA', 'service_slug' => 'khulna_wasa', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'khulna_wasa.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'khulna_wasa.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
+            ['utility_auth_key' => '', 'utility_secret_key' => '', 'service_type_id' => Business::serviceType()->findWhere(['service_type_slug' => 'khulna_wasa'])->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Khulna WASA', 'service_slug' => 'khulna_wasa', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'khulna_wasa.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'khulna_wasa.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
 
-            ['utility_auth_key' => '', 'utility_secret_key' => '', 'service_type_id' => Business::serviceType()->list(['service_type_slug' => 'chattogram_wasa'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Chattogram WASA', 'service_slug' => 'chattogram_wasa', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'chattogram_wasa.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'chattogram_wasa.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
+            ['utility_auth_key' => '', 'utility_secret_key' => '', 'service_type_id' => Business::serviceType()->findWhere(['service_type_slug' => 'chattogram_wasa'])->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Chattogram WASA', 'service_slug' => 'chattogram_wasa', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'chattogram_wasa.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'chattogram_wasa.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
 
-            ['utility_auth_key' => 'JA17001081834302', 'utility_secret_key' => 'Q6aoOjmlUsRoQOHM', 'service_type_id' => Business::serviceType()->list(['service_type_slug' => 'jalalabad_gas'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Jalalabad Gas', 'service_slug' => 'jalalabad_gas', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'jalalabad_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'jalalabad_gas.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
+            ['utility_auth_key' => 'JA17001081834302', 'utility_secret_key' => 'Q6aoOjmlUsRoQOHM', 'service_type_id' => Business::serviceType()->findWhere(['service_type_slug' => 'jalalabad_gas'])->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Jalalabad Gas', 'service_slug' => 'jalalabad_gas', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'jalalabad_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'jalalabad_gas.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
 
-            ['utility_auth_key' => '', 'utility_secret_key' => '', 'service_type_id' => Business::serviceType()->list(['service_type_slug' => 'titas_gas'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Titas Gas', 'service_slug' => 'titas_gas', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'titas_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'titas_gas.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
+            ['utility_auth_key' => '', 'utility_secret_key' => '', 'service_type_id' => Business::serviceType()->findWhere(['service_type_slug' => 'titas_gas'])->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Titas Gas', 'service_slug' => 'titas_gas', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'titas_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'titas_gas.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
 
-            ['utility_auth_key' => '', 'utility_secret_key' => '', 'service_type_id' => Business::serviceType()->list(['service_type_slug' => 'titas_gas_metered'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Titas Gas Metered', 'service_slug' => 'titas_gas_metered', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'titas_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'titas_gas.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
+            ['utility_auth_key' => '', 'utility_secret_key' => '', 'service_type_id' => Business::serviceType()->findWhere(['service_type_slug' => 'titas_gas_metered'])->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Titas Gas Metered', 'service_slug' => 'titas_gas_metered', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'titas_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'titas_gas.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
 
-            ['utility_auth_key' => '', 'utility_secret_key' => '', 'service_type_id' => Business::serviceType()->list(['service_type_slug' => 'bakhrabad_gas'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Bakhrabad Gas', 'service_slug' => 'bakhrabad_gas', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'bakhrabad_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'bakhrabad_gas.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
+            ['utility_auth_key' => '', 'utility_secret_key' => '', 'service_type_id' => Business::serviceType()->findWhere(['service_type_slug' => 'bakhrabad_gas'])->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Bakhrabad Gas', 'service_slug' => 'bakhrabad_gas', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'bakhrabad_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'bakhrabad_gas.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
 
-            ['utility_auth_key' => '', 'utility_secret_key' => '', 'service_type_id' => Business::serviceType()->list(['service_type_slug' => 'paschimanchal_gas'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Paschimanchal Gas', 'service_slug' => 'paschimanchal_gas', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'paschimanchal_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'paschimanchal_gas.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
+            ['utility_auth_key' => '', 'utility_secret_key' => '', 'service_type_id' => Business::serviceType()->findWhere(['service_type_slug' => 'paschimanchal_gas'])->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Paschimanchal Gas', 'service_slug' => 'paschimanchal_gas', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'paschimanchal_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'paschimanchal_gas.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
 
-            ['utility_auth_key' => 'KG15432366535191', 'utility_secret_key' => '5us6cXd9LJinse0J', 'service_type_id' => Business::serviceType()->list(['service_type_slug' => 'karnaphuli_gas_metered'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Karnaphuli Gas Metered', 'service_slug' => 'karnaphuli_gas_metered', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'karnaphuli_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'karnaphuli_gas.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
-            ['utility_auth_key' => 'KG15432366689162', 'utility_secret_key' => 'CUog7mD/SHWSgvf7', 'service_type_id' => Business::serviceType()->list(['service_type_slug' => 'karnaphuli_gas_non_metered'])->first()->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Karnaphuli Gas Non-Metered', 'service_slug' => 'karnaphuli_gas_non_metered', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'karnaphuli_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'karnaphuli_gas.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
+            ['utility_auth_key' => 'KG15432366535191', 'utility_secret_key' => '5us6cXd9LJinse0J', 'service_type_id' => Business::serviceType()->findWhere(['service_type_slug' => 'karnaphuli_gas_metered'])->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Karnaphuli Gas Metered', 'service_slug' => 'karnaphuli_gas_metered', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'karnaphuli_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'karnaphuli_gas.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
+            ['utility_auth_key' => 'KG15432366689162', 'utility_secret_key' => 'CUog7mD/SHWSgvf7', 'service_type_id' => Business::serviceType()->findWhere(['service_type_slug' => 'karnaphuli_gas_non_metered'])->id, 'service_vendor_id' => $vendor_id, 'service_name' => 'Karnaphuli Gas Non-Metered', 'service_slug' => 'karnaphuli_gas_non_metered', 'logo_svg' => 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($image_svg.'karnaphuli_gas.svg')), 'logo_png' => 'data:image/png;base64,'.base64_encode(file_get_contents($image_png.'karnaphuli_gas.png')), 'service_notification' => 'yes', 'service_delay' => 'yes', 'service_stat_policy' => 'yes', 'service_serial' => 5, 'service_data' => ['visible_website' => 'yes', 'visible_android_app' => 'yes', 'visible_ios_app' => 'yes', 'account_name' => '', 'account_number' => '', 'transactional_currency' => 'BDT', 'beneficiary_type_id' => null, 'operator_short_code' => null], 'enabled' => true],
         ];
 
     }
@@ -138,7 +138,7 @@ class GasBillSeeder extends Seeder
         $roles = Auth::role()->list(['id_not_in' => [1]])->pluck('id')->toArray();
         $source_countries = MetaData::country()->servingIds();
         foreach ($serviceLists as $serviceList) {
-            $service = Business::service()->list(['service_slug' => $serviceList['service_slug']])->first();
+            $service = Business::service()->findWhere(['service_slug' => $serviceList['service_slug']]);
             $serviceStats[] = [
                 'role_id' => $roles,
                 'service_id' => $service->getKey(),
@@ -176,7 +176,7 @@ class GasBillSeeder extends Seeder
         return [
             //DESCO POSTPAID
             [
-                'service_id' => Business::service()->list(['service_slug' => 'desco_postpaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'desco_postpaid'])->id,
                 'name' => 'bill_number',
                 'label' => 'Bill Number',
                 'type' => 'text',
@@ -191,7 +191,7 @@ class GasBillSeeder extends Seeder
             ],
             //DESCO PREPAID
             [
-                'service_id' => Business::service()->list(['service_slug' => 'desco_prepaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'desco_prepaid'])->id,
                 'name' => 'ac_number',
                 'label' => 'Account Number',
                 'type' => 'text',
@@ -205,7 +205,7 @@ class GasBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->list(['service_slug' => 'desco_prepaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'desco_prepaid'])->id,
                 'name' => 'amount',
                 'label' => 'Recharge Amount',
                 'type' => 'text',
@@ -219,7 +219,7 @@ class GasBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->list(['service_slug' => 'desco_prepaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'desco_prepaid'])->id,
                 'name' => 'mobile_number',
                 'label' => 'Mobile Number',
                 'type' => 'text',
@@ -234,7 +234,7 @@ class GasBillSeeder extends Seeder
             ],
             //DPDC POST PAID
             [
-                'service_id' => Business::service()->list(['service_slug' => 'dpdc_postpaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'dpdc_postpaid'])->id,
                 'name' => 'bill_months',
                 'label' => 'Bill Month',
                 'type' => 'select',
@@ -261,7 +261,7 @@ class GasBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->list(['service_slug' => 'dpdc_postpaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'dpdc_postpaid'])->id,
                 'name' => 'bill_years',
                 'label' => 'Bill Year',
                 'type' => 'select-year',
@@ -277,7 +277,7 @@ class GasBillSeeder extends Seeder
                 ],
             ],
             [
-                'service_id' => Business::service()->list(['service_slug' => 'dpdc_postpaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'dpdc_postpaid'])->id,
                 'name' => 'ac_number',
                 'label' => 'Account code',
                 'type' => 'text',
@@ -292,7 +292,7 @@ class GasBillSeeder extends Seeder
             ],
             //DPDC PRE PAID
             [
-                'service_id' => Business::service()->list(['service_slug' => 'dpdc_prepaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'dpdc_prepaid'])->id,
                 'name' => 'bill_months',
                 'label' => 'Bill Month',
                 'type' => 'select',
@@ -319,7 +319,7 @@ class GasBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->list(['service_slug' => 'dpdc_prepaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'dpdc_prepaid'])->id,
                 'name' => 'bill_years',
                 'label' => 'Bill Year',
                 'type' => 'select-year',
@@ -335,7 +335,7 @@ class GasBillSeeder extends Seeder
                 ],
             ],
             [
-                'service_id' => Business::service()->list(['service_slug' => 'dpdc_prepaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'dpdc_prepaid'])->id,
                 'name' => 'account_number',
                 'label' => 'Account code',
                 'type' => 'text',
@@ -350,7 +350,7 @@ class GasBillSeeder extends Seeder
             ],
             //NESCO POSTPAID
             [
-                'service_id' => Business::service()->list(['service_slug' => 'nesco_postpaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'nesco_postpaid'])->id,
                 'name' => 'bill_number',
                 'label' => 'Bill Number',
                 'type' => 'text',
@@ -365,7 +365,7 @@ class GasBillSeeder extends Seeder
             ],
             //NESCO PREPAID
             [
-                'service_id' => Business::service()->list(['service_slug' => 'nesco_prepaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'nesco_prepaid'])->id,
                 'name' => 'account_number',
                 'label' => 'Customer Number',
                 'type' => 'text',
@@ -379,7 +379,7 @@ class GasBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->list(['service_slug' => 'nesco_prepaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'nesco_prepaid'])->id,
                 'name' => 'amount',
                 'label' => 'Recharge Amount',
                 'type' => 'text',
@@ -394,7 +394,7 @@ class GasBillSeeder extends Seeder
             ],
             //WEST ZONE POSTPAID
             [
-                'service_id' => Business::service()->list(['service_slug' => 'west_zone_postpaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'west_zone_postpaid'])->id,
                 'name' => 'account_number',
                 'label' => 'Account Number',
                 'type' => 'text',
@@ -409,7 +409,7 @@ class GasBillSeeder extends Seeder
             ],
             //WEST ZONE PREPAID
             [
-                'service_id' => Business::service()->list(['service_slug' => 'west_zone_prepaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'west_zone_prepaid'])->id,
                 'name' => 'account_number',
                 'label' => 'Account Number',
                 'type' => 'text',
@@ -424,7 +424,7 @@ class GasBillSeeder extends Seeder
             ],
             //BPDB PREPAID
             [
-                'service_id' => Business::service()->list(['service_slug' => 'bpdb_prepaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'bpdb_prepaid'])->id,
                 'name' => 'meter_no',
                 'label' => 'Meter Number',
                 'type' => 'text',
@@ -438,7 +438,7 @@ class GasBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->list(['service_slug' => 'bpdb_prepaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'bpdb_prepaid'])->id,
                 'name' => 'mobile_no',
                 'label' => 'Mobile Number',
                 'type' => 'text',
@@ -452,7 +452,7 @@ class GasBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->list(['service_slug' => 'bpdb_prepaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'bpdb_prepaid'])->id,
                 'name' => 'amount',
                 'label' => 'Amount',
                 'type' => 'number',
@@ -468,7 +468,7 @@ class GasBillSeeder extends Seeder
                 ],
             ],
             [
-                'service_id' => Business::service()->list(['service_slug' => 'bpdb_prepaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'bpdb_prepaid'])->id,
                 'name' => 'bill_type',
                 'label' => 'Bill Type',
                 'type' => 'hidden',
@@ -483,7 +483,7 @@ class GasBillSeeder extends Seeder
             ],
             //BREB POSTPAID
             [
-                'service_id' => Business::service()->list(['service_slug' => 'breb_postpaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'breb_postpaid'])->id,
                 'name' => 'type_of_bill',
                 'label' => 'Bill Type',
                 'type' => 'select',
@@ -503,7 +503,7 @@ class GasBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->list(['service_slug' => 'breb_postpaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'breb_postpaid'])->id,
                 'name' => 'branchRoutingNo',
                 'label' => 'Branch Routing No',
                 'type' => 'hidden',
@@ -517,7 +517,7 @@ class GasBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->list(['service_slug' => 'breb_postpaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'breb_postpaid'])->id,
                 'name' => 'account_no',
                 'label' => 'Account code',
                 'type' => 'text',
@@ -532,7 +532,7 @@ class GasBillSeeder extends Seeder
             ],
             //BREB PREPAID
             [
-                'service_id' => Business::service()->list(['service_slug' => 'breb_prepaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'breb_prepaid'])->id,
                 'name' => 'meter_no',
                 'label' => 'Meter Number',
                 'type' => 'select',
@@ -546,7 +546,7 @@ class GasBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->list(['service_slug' => 'breb_prepaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'breb_prepaid'])->id,
                 'name' => 'mobile_no',
                 'label' => 'Mobile Number',
                 'type' => 'select',
@@ -560,7 +560,7 @@ class GasBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->list(['service_slug' => 'breb_prepaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'breb_prepaid'])->id,
                 'name' => 'amount',
                 'label' => 'Amount',
                 'type' => 'number',
@@ -576,7 +576,7 @@ class GasBillSeeder extends Seeder
                 ],
             ],
             [
-                'service_id' => Business::service()->list(['service_slug' => 'breb_prepaid'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'breb_prepaid'])->id,
                 'name' => 'bill_type',
                 'label' => 'Bill Type',
                 'type' => 'hidden',
@@ -591,7 +591,7 @@ class GasBillSeeder extends Seeder
             ],
             //DHAKA WASA
             [
-                'service_id' => Business::service()->list(['service_slug' => 'dhaka_wasa'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'dhaka_wasa'])->id,
                 'name' => 'bill_number',
                 'label' => 'Bill Number',
                 'type' => 'text',
@@ -606,7 +606,7 @@ class GasBillSeeder extends Seeder
             ],
             //KHULNA WASA
             [
-                'service_id' => Business::service()->list(['service_slug' => 'khulna_wasa'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'khulna_wasa'])->id,
                 'name' => 'bill_number',
                 'label' => 'Bill Number',
                 'type' => 'text',
@@ -620,7 +620,7 @@ class GasBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->list(['service_slug' => 'khulna_wasa'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'khulna_wasa'])->id,
                 'name' => 'bll_typ',
                 'label' => 'Bill Type',
                 'type' => 'select',
@@ -638,7 +638,7 @@ class GasBillSeeder extends Seeder
             ],
             //CHATTOGRAM WASA
             [
-                'service_id' => Business::service()->list(['service_slug' => 'chattogram_wasa'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'chattogram_wasa'])->id,
                 'name' => 'bill_number',
                 'label' => 'Bill Number',
                 'type' => 'text',
@@ -653,7 +653,7 @@ class GasBillSeeder extends Seeder
             ],
             //JALALABAD GAS
             [
-                'service_id' => Business::service()->list(['service_slug' => 'jalalabad_gas'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'jalalabad_gas'])->id,
                 'name' => 'account_number',
                 'label' => 'Account Number',
                 'type' => 'text',
@@ -667,7 +667,7 @@ class GasBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->list(['service_slug' => 'jalalabad_gas'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'jalalabad_gas'])->id,
                 'name' => 'mobile_number',
                 'label' => 'Mobile Number',
                 'type' => 'text',
@@ -682,7 +682,7 @@ class GasBillSeeder extends Seeder
             ],
             //TITAS GAS
             [
-                'service_id' => Business::service()->list(['service_slug' => 'titas_gas'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'titas_gas'])->id,
                 'name' => 'bill_number',
                 'label' => 'Bill Number',
                 'type' => 'text',
@@ -696,7 +696,7 @@ class GasBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->list(['service_slug' => 'titas_gas_metered'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'titas_gas_metered'])->id,
                 'name' => 'bill_number',
                 'label' => 'Bill Number',
                 'type' => 'text',
@@ -711,7 +711,7 @@ class GasBillSeeder extends Seeder
             ],
             //BAKHRABAD GAS
             [
-                'service_id' => Business::service()->list(['service_slug' => 'bakhrabad_gas'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'bakhrabad_gas'])->id,
                 'name' => 'account_number',
                 'label' => 'Customer ONLINE code',
                 'type' => 'text',
@@ -725,7 +725,7 @@ class GasBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->list(['service_slug' => 'bakhrabad_gas'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'bakhrabad_gas'])->id,
                 'name' => 'mobile_number',
                 'label' => 'ONLINE REGISTERED Mobile Number',
                 'type' => 'text',
@@ -739,7 +739,7 @@ class GasBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->list(['service_slug' => 'bakhrabad_gas'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'bakhrabad_gas'])->id,
                 'name' => 'bll_typ',
                 'label' => 'Biller\'s Type',
                 'type' => 'select',
@@ -757,7 +757,7 @@ class GasBillSeeder extends Seeder
             ],
             //PASCHIMANCHAL GAS
             [
-                'service_id' => Business::service()->list(['service_slug' => 'paschimanchal_gas'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'paschimanchal_gas'])->id,
                 'name' => 'account_number',
                 'label' => 'Account Number',
                 'type' => 'text',
@@ -771,7 +771,7 @@ class GasBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->list(['service_slug' => 'paschimanchal_gas'])->first()->id,
+                'service_id' => Business::service()->findWhere(['service_slug' => 'paschimanchal_gas'])->id,
                 'name' => 'mobile_number',
                 'label' => 'Mobile Number',
                 'type' => 'text',

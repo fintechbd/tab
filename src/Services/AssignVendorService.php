@@ -42,7 +42,7 @@ class AssignVendorService
             throw new TabException(__('tab::messages.assign_vendor.not_found', ['slug' => ucfirst($slug)]));
         }
 
-        $this->serviceVendorModel = Business::serviceVendor()->list(['service_vendor_slug' => $slug, 'enabled'])->first();
+        $this->serviceVendorModel = Business::serviceVendor()->findWhere(['service_vendor_slug' => $slug, 'enabled' => true]);
 
         if (! $this->serviceVendorModel) {
             throw (new ModelNotFoundException)->setModel(config('fintech.business.service_vendor_model'), $slug);
