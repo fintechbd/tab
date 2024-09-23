@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 if (Config::get('fintech.tab.enabled')) {
-    Route::prefix(config('fintech.tab.root_prefix', 'api/'))->middleware(['api', 'http_log', 'encrypted'])->group(function () {
+    Route::prefix(config('fintech.tab.root_prefix', 'api/'))->middleware(['api'])->group(function () {
         Route::prefix('tab')->name('tab.')->group(function () {
             Route::apiResource('pay-bills', PayBillController::class)
                 ->only(['index', 'store', 'show'])->where(['pay_bill' => '[0-9]+']);
