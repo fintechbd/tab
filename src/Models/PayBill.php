@@ -9,9 +9,6 @@ use Fintech\Core\Traits\AuditableTrait;
 use Fintech\Transaction\Models\Order;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-/**
- * @property mixed $status
- */
 class PayBill extends Order
 {
     use AuditableTrait;
