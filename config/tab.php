@@ -47,10 +47,10 @@ return [
     */
     'providers' => [
         'sslwireless' => [
-            'mode' => 'sandbox',
+            'mode' => env('PACKAGE_TAB_SSLUTIL_MODE','sandbox'),
             'driver' => Fintech\Tab\Vendors\SSLUtility::class,
             'live' => [
-                'endpoint' => 'https://api.sslwireless.com/api',
+                'endpoint' => 'https://common-api.sslwireless.com/api',
                 'auth_key' => env('PACKAGE_TAB_SSLUTIL_AUTH_KEY'),
                 'stk_code' => env('PACKAGE_TAB_SSLUTIL_STK_CODE'),
             ],
