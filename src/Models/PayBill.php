@@ -6,12 +6,15 @@ use Fintech\Airtime\Traits\AuthRelations;
 use Fintech\Airtime\Traits\BusinessRelations;
 use Fintech\Airtime\Traits\MetaDataRelations;
 use Fintech\Core\Traits\AuditableTrait;
+use Fintech\Core\Traits\BlameableTrait;
 use Fintech\Transaction\Models\Order;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class PayBill extends Order
+class PayBill extends Order implements Auditable
 {
-    use AuditableTrait;
+    use \OwenIt\Auditing\Auditable;
+    use BlameableTrait;
     use AuthRelations;
     use BusinessRelations;
     use MetaDataRelations;
