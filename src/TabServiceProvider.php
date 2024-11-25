@@ -2,7 +2,7 @@
 
 namespace Fintech\Tab;
 
-use Fintech\Core\Traits\RegisterPackageTrait;
+use Fintech\Core\Traits\Packages\RegisterPackageTrait;
 use Fintech\Tab\Commands\InstallCommand;
 use Fintech\Tab\Commands\SSLWirelessSetupCommand;
 use Fintech\Tab\Providers\RepositoryServiceProvider;

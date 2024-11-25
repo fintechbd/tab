@@ -5,7 +5,7 @@ namespace Fintech\Tab\Models;
 use Fintech\Airtime\Traits\AuthRelations;
 use Fintech\Airtime\Traits\BusinessRelations;
 use Fintech\Airtime\Traits\MetaDataRelations;
-use Fintech\Core\Traits\BlameableTrait;
+use Fintech\Core\Traits\Audits\BlameableTrait;
 use Fintech\Transaction\Models\Order;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use OwenIt\Auditing\Contracts\Auditable;
