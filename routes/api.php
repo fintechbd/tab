@@ -1,7 +1,7 @@
 <?php
 
-use Fintech\RestApi\Http\Controllers\Tab\CalculateCostController;
-use Fintech\RestApi\Http\Controllers\Tab\PayBillController;
+use Fintech\Tab\Http\Controllers\CalculateCostController;
+use Fintech\Tab\Http\Controllers\PayBillController;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 
