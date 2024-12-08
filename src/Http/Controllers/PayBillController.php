@@ -157,7 +157,7 @@ class PayBillController extends Controller
                 DB::commit();
 
                 return response()->created([
-                    'message' => __('restapi::messages.resource.created', ['model' => 'Pay Bill']),
+                    'message' => __('core::messages.resource.created', ['model' => 'Pay Bill']),
                     'id' => $payBill->getKey(),
                     'spent' => $userUpdatedBalance['spent_amount'],
                 ]);
@@ -195,7 +195,7 @@ class PayBillController extends Controller
                 throw (new UpdateOperationException)->setModel(config('fintech.tab.pay_bill_model'), $id);
             }
 
-            return response()->updated(__('restapi::messages.resource.updated', ['model' => 'Pay Bill']));
+            return response()->updated(__('core::messages.resource.updated', ['model' => 'Pay Bill']));
 
         } catch (ModelNotFoundException $exception) {
 
@@ -258,7 +258,7 @@ class PayBillController extends Controller
                 throw (new DeleteOperationException)->setModel(config('fintech.tab.pay_bill_model'), $id);
             }
 
-            return response()->deleted(__('restapi::messages.resource.deleted', ['model' => 'Pay Bill']));
+            return response()->deleted(__('core::messages.resource.deleted', ['model' => 'Pay Bill']));
 
         } catch (ModelNotFoundException $exception) {
 
@@ -292,7 +292,7 @@ class PayBillController extends Controller
                 throw (new RestoreOperationException)->setModel(config('fintech.tab.pay_bill_model'), $id);
             }
 
-            return response()->restored(__('restapi::messages.resource.restored', ['model' => 'Pay Bill']));
+            return response()->restored(__('core::messages.resource.restored', ['model' => 'Pay Bill']));
 
         } catch (ModelNotFoundException $exception) {
 
@@ -319,7 +319,7 @@ class PayBillController extends Controller
             //$payBillPaginate = Tab::payBill()->export($inputs);
             Tab::payBill()->export($inputs);
 
-            return response()->exported(__('restapi::messages.resource.exported', ['model' => 'Pay Bill']));
+            return response()->exported(__('core::messages.resource.exported', ['model' => 'Pay Bill']));
 
         } catch (Exception $exception) {
 
