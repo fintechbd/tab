@@ -26,8 +26,8 @@ class PayBillRequest extends FormRequest
         $rules = [
             'user_id' => ['nullable', 'integer', 'min:1'],
             'service_id' => ['required', 'integer', 'min:1'],
-            'source_country_id' => ['required', 'integer', 'min:1'],
-            'destination_country_id' => ['required', 'integer', 'min:1'],
+            'source_country_id' => ['required', 'integer', 'min:1', 'master_currency'],
+            'destination_country_id' => ['required', 'integer', 'min:1', 'master_currency'],
             'reverse' => ['required', 'boolean'],
             'reload' => ['nullable', 'boolean'],
             'pay_bill_data' => ['nullable', 'array'],
