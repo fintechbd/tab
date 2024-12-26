@@ -160,7 +160,7 @@ class PayBillController extends Controller
                     'message' => __('core::messages.resource.created', ['model' => 'Pay Bill']),
                     'id' => $payBill->getKey(),
                     'spent' => $userUpdatedBalance['spent_amount'],
-                    'order_number' => $payBill->order_number ?? $payBill->order_data['purchase_number']
+                    'order_number' => $payBill->order_number ?? $payBill->order_data['purchase_number'],
                 ]);
             } else {
                 throw new Exception('Your another order is in process...!');
