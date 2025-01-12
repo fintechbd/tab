@@ -80,7 +80,7 @@ class AssignVendorService
     {
 
         if ($order->service_vendor_id == config('fintech.business.default_vendor')) {
-            throw new TabException(__('tab::messages.assign_vendor.not_assigned'));
+            throw new TabException(__('core::messages.assign_vendor.not_assigned'));
         }
 
         $this->initiateVendor($order->vendor);
@@ -105,7 +105,7 @@ class AssignVendorService
     {
 
         if ($order->service_vendor_id == config('fintech.business.default_vendor')) {
-            throw new TabException(__('tab::messages.assign_vendor.not_assigned'));
+            throw new TabException(__('core::messages.assign_vendor.not_assigned'));
         }
 
         $this->initiateVendor($order->vendor);

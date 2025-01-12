@@ -60,7 +60,7 @@ class CalculateCostController extends Controller
             $quoteInfo = Tab::assignVendor()->requestQuote($quote);
 
             if ($quoteInfo['status'] === false) {
-                throw new TabException(__('tab::messages.assign_vendor.quote_failed'));
+                throw new TabException(__('core::messages.assign_vendor.quote_failed'));
             }
 
             $inputs['amount'] = $quoteInfo['amount'];
