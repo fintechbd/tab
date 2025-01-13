@@ -24,7 +24,7 @@ if (Config::get('fintech.tab.enabled')) {
             Route::post('pay-bills/calculate-cost', CalculateCostController::class)
                 ->name('pay-bills.calculate-cost');
 
-            //DO NOT REMOVE THIS LINE//
+            // DO NOT REMOVE THIS LINE//
         });
     });
 }

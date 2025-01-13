@@ -174,7 +174,7 @@ class GasBillSeeder extends Seeder
     private function serviceField(): array
     {
         return [
-            //DESCO POSTPAID
+            // DESCO POSTPAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'desco_postpaid'])->id,
                 'name' => 'bill_number',
@@ -189,7 +189,7 @@ class GasBillSeeder extends Seeder
                 'validation' => 'required|min:5|max:20',
                 'service_field_data' => new stdClass,
             ],
-            //DESCO PREPAID
+            // DESCO PREPAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'desco_prepaid'])->id,
                 'name' => 'ac_number',
@@ -232,7 +232,7 @@ class GasBillSeeder extends Seeder
                 'validation' => 'required|string|min:11|max:15',
                 'service_field_data' => new stdClass,
             ],
-            //DPDC POST PAID
+            // DPDC POST PAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'dpdc_postpaid'])->id,
                 'name' => 'bill_months',
@@ -290,7 +290,7 @@ class GasBillSeeder extends Seeder
                 'validation' => 'required|min:5|max:20',
                 'service_field_data' => new stdClass,
             ],
-            //DPDC PRE PAID
+            // DPDC PRE PAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'dpdc_prepaid'])->id,
                 'name' => 'bill_months',
@@ -348,7 +348,7 @@ class GasBillSeeder extends Seeder
                 'validation' => 'required|min:5|max:20',
                 'service_field_data' => new stdClass,
             ],
-            //NESCO POSTPAID
+            // NESCO POSTPAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'nesco_postpaid'])->id,
                 'name' => 'bill_number',
@@ -363,7 +363,7 @@ class GasBillSeeder extends Seeder
                 'validation' => 'required|min:5|max:20',
                 'service_field_data' => new stdClass,
             ],
-            //NESCO PREPAID
+            // NESCO PREPAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'nesco_prepaid'])->id,
                 'name' => 'account_number',
@@ -392,7 +392,7 @@ class GasBillSeeder extends Seeder
                 'validation' => 'required|numeric|min:1',
                 'service_field_data' => new stdClass,
             ],
-            //WEST ZONE POSTPAID
+            // WEST ZONE POSTPAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'west_zone_postpaid'])->id,
                 'name' => 'account_number',
@@ -407,7 +407,7 @@ class GasBillSeeder extends Seeder
                 'validation' => 'required|min:5|max:20',
                 'service_field_data' => new stdClass,
             ],
-            //WEST ZONE PREPAID
+            // WEST ZONE PREPAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'west_zone_prepaid'])->id,
                 'name' => 'account_number',
@@ -422,7 +422,7 @@ class GasBillSeeder extends Seeder
                 'validation' => 'required|min:5|max:20',
                 'service_field_data' => new stdClass,
             ],
-            //BPDB PREPAID
+            // BPDB PREPAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'bpdb_prepaid'])->id,
                 'name' => 'meter_no',
@@ -481,7 +481,7 @@ class GasBillSeeder extends Seeder
                 'validation' => 'required|min:1|max:20',
                 'service_field_data' => new stdClass,
             ],
-            //BREB POSTPAID
+            // BREB POSTPAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'breb_postpaid'])->id,
                 'name' => 'type_of_bill',
@@ -530,7 +530,7 @@ class GasBillSeeder extends Seeder
                 'validation' => 'required|min:5|max:20',
                 'service_field_data' => new stdClass,
             ],
-            //BREB PREPAID
+            // BREB PREPAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'breb_prepaid'])->id,
                 'name' => 'meter_no',
@@ -589,7 +589,7 @@ class GasBillSeeder extends Seeder
                 'validation' => 'required|min:1|max:20',
                 'service_field_data' => new stdClass,
             ],
-            //DHAKA WASA
+            // DHAKA WASA
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'dhaka_wasa'])->id,
                 'name' => 'bill_number',
@@ -604,7 +604,7 @@ class GasBillSeeder extends Seeder
                 'validation' => 'required|min:5|max:20',
                 'service_field_data' => new stdClass,
             ],
-            //KHULNA WASA
+            // KHULNA WASA
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'khulna_wasa'])->id,
                 'name' => 'bill_number',
@@ -636,7 +636,7 @@ class GasBillSeeder extends Seeder
                 'validation' => 'required|min:1|string|max:2',
                 'service_field_data' => new stdClass,
             ],
-            //CHATTOGRAM WASA
+            // CHATTOGRAM WASA
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'chattogram_wasa'])->id,
                 'name' => 'bill_number',
@@ -651,7 +651,7 @@ class GasBillSeeder extends Seeder
                 'validation' => 'required|min:5|max:20',
                 'service_field_data' => new stdClass,
             ],
-            //JALALABAD GAS
+            // JALALABAD GAS
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'jalalabad_gas'])->id,
                 'name' => 'account_number',
@@ -680,7 +680,7 @@ class GasBillSeeder extends Seeder
                 'validation' => 'required|min:5|max:20',
                 'service_field_data' => new stdClass,
             ],
-            //TITAS GAS
+            // TITAS GAS
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'titas_gas'])->id,
                 'name' => 'bill_number',
@@ -709,7 +709,7 @@ class GasBillSeeder extends Seeder
                 'validation' => 'required|min:5|max:20',
                 'service_field_data' => new stdClass,
             ],
-            //BAKHRABAD GAS
+            // BAKHRABAD GAS
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'bakhrabad_gas'])->id,
                 'name' => 'account_number',
@@ -755,7 +755,7 @@ class GasBillSeeder extends Seeder
                 'validation' => 'required|min:1|string|max:2',
                 'service_field_data' => new stdClass,
             ],
-            //PASCHIMANCHAL GAS
+            // PASCHIMANCHAL GAS
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'paschimanchal_gas'])->id,
                 'name' => 'account_number',

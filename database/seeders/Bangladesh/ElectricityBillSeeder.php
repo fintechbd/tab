@@ -42,7 +42,7 @@ class ElectricityBillSeeder extends Seeder
         $image_png = base_path('vendor/fintech/tab/resources/img/service_type/logo_png/');
 
         return [
-            //DESCO Postpaid
+            // DESCO Postpaid
             [
                 'service_type_name' => 'DESCO Postpaid',
                 'service_type_slug' => 'desco_postpaid',
@@ -57,7 +57,7 @@ class ElectricityBillSeeder extends Seeder
                     'utility_secret_key' => 'DE151746006894272',
                 ],
             ],
-            //DESCO Prepaid
+            // DESCO Prepaid
             [
                 'service_type_name' => 'DESCO Prepaid',
                 'service_type_slug' => 'desco_prepaid',
@@ -72,7 +72,7 @@ class ElectricityBillSeeder extends Seeder
                     'utility_secret_key' => 'WLNLw965LSr3qvSB',
                 ],
             ],
-            //DPDC Postpaid
+            // DPDC Postpaid
             [
                 'service_type_name' => 'DPDC Postpaid',
                 'service_type_slug' => 'dpdc_postpaid',
@@ -87,7 +87,7 @@ class ElectricityBillSeeder extends Seeder
                     'utility_secret_key' => 'wQXJaE6c5ydoxG3H',
                 ],
             ],
-            //DPDC Postpaid
+            // DPDC Postpaid
             [
                 'service_type_name' => 'DPDC Prepaid',
                 'service_type_slug' => 'dpdc_prepaid',
@@ -102,7 +102,7 @@ class ElectricityBillSeeder extends Seeder
                     'utility_secret_key' => 'bonm0/jgKnBAErRh',
                 ],
             ],
-            //NESCO Postpaid
+            // NESCO Postpaid
             [
                 'service_type_name' => 'NESCO Postpaid',
                 'service_type_slug' => 'nesco_postpaid',
@@ -117,7 +117,7 @@ class ElectricityBillSeeder extends Seeder
                     'utility_secret_key' => 'I4NvO4kH88BdW9XE',
                 ],
             ],
-            //NESCO Prepaid
+            // NESCO Prepaid
             [
                 'service_type_name' => 'NESCO Prepaid',
                 'service_type_slug' => 'nesco_prepaid',
@@ -132,7 +132,7 @@ class ElectricityBillSeeder extends Seeder
                     'utility_secret_key' => 'PsilgetRO/wYIkPg',
                 ],
             ],
-            //NESCO Prepaid
+            // NESCO Prepaid
             [
                 'service_type_name' => 'West Zone Postpaid',
                 'service_type_slug' => 'west_zone_postpaid',
@@ -147,7 +147,7 @@ class ElectricityBillSeeder extends Seeder
                     'utility_secret_key' => 'DE151746006894272',
                 ],
             ],
-            //West Zone Prepaid
+            // West Zone Prepaid
             [
                 'service_type_name' => 'West Zone Prepaid',
                 'service_type_slug' => 'west_zone_prepaid',
@@ -162,7 +162,7 @@ class ElectricityBillSeeder extends Seeder
                     'utility_secret_key' => '',
                 ],
             ],
-            //BPDB Prepaid
+            // BPDB Prepaid
             [
                 'service_type_name' => 'BPDB Prepaid',
                 'service_type_slug' => 'bpdb_prepaid',
@@ -177,7 +177,7 @@ class ElectricityBillSeeder extends Seeder
                     'utility_secret_key' => 'Tv05Xd4NEFref4S7',
                 ],
             ],
-            //BREB Postpaid
+            // BREB Postpaid
             [
                 'service_type_name' => 'BREB Postpaid',
                 'service_type_slug' => 'breb_postpaid',
@@ -192,7 +192,7 @@ class ElectricityBillSeeder extends Seeder
                     'utility_secret_key' => 'A2BonKfvRke8J46M',
                 ],
             ],
-            //BREB Prepaid
+            // BREB Prepaid
             [
                 'service_type_name' => 'BREB Prepaid',
                 'service_type_slug' => 'breb_prepaid',
@@ -213,7 +213,7 @@ class ElectricityBillSeeder extends Seeder
     private function addServiceFields(): void
     {
         $service_fields = [
-            //DESCO POSTPAID
+            // DESCO POSTPAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'desco_postpaid'])->id,
                 'name' => 'billno',
@@ -228,7 +228,7 @@ class ElectricityBillSeeder extends Seeder
                 'validation' => 'required|min:1|max:50|string|numeric',
                 'service_field_data' => new stdClass,
             ],
-            //DESCO PREPAID
+            // DESCO PREPAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'desco_prepaid'])->id,
                 'name' => 'account_no',
@@ -285,7 +285,7 @@ class ElectricityBillSeeder extends Seeder
                 'validation' => 'nullable|string',
                 'service_field_data' => new stdClass,
             ],
-            //DPDC POSTPAID
+            // DPDC POSTPAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'dpdc_postpaid'])->id,
                 'name' => 'account_no',
@@ -365,7 +365,7 @@ class ElectricityBillSeeder extends Seeder
                 'validation' => 'required|size:1|string|in:1,2,3,4,5,6,7',
                 'service_field_data' => new stdClass,
             ],
-            //DPDC PREPAID
+            // DPDC PREPAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'dpdc_prepaid'])->id,
                 'name' => 'customer_no',
@@ -408,7 +408,7 @@ class ElectricityBillSeeder extends Seeder
                 'validation' => 'required|numeric|min:1',
                 'service_field_data' => new stdClass,
             ],
-            //NESCO POSTPAID
+            // NESCO POSTPAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'nesco_postpaid'])->id,
                 'name' => 'bill_number',
@@ -423,7 +423,7 @@ class ElectricityBillSeeder extends Seeder
                 'validation' => 'required|min:5|max:20',
                 'service_field_data' => new stdClass,
             ],
-            //NESCO PREPAID
+            // NESCO PREPAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'nesco_prepaid'])->id,
                 'name' => 'account_number',
@@ -452,7 +452,7 @@ class ElectricityBillSeeder extends Seeder
                 'validation' => 'required|numeric|min:1',
                 'service_field_data' => new stdClass,
             ],
-            //WEST ZONE POSTPAID
+            // WEST ZONE POSTPAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'west_zone_postpaid'])->id,
                 'name' => 'account_number',
@@ -467,7 +467,7 @@ class ElectricityBillSeeder extends Seeder
                 'validation' => 'required|min:5|max:20',
                 'service_field_data' => new stdClass,
             ],
-            //WEST ZONE PREPAID
+            // WEST ZONE PREPAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'west_zone_prepaid'])->id,
                 'name' => 'account_number',
@@ -482,7 +482,7 @@ class ElectricityBillSeeder extends Seeder
                 'validation' => 'required|min:5|max:20',
                 'service_field_data' => new stdClass,
             ],
-            //BPDB PREPAID
+            // BPDB PREPAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'bpdb_prepaid'])->id,
                 'name' => 'meter_no',
@@ -544,7 +544,7 @@ class ElectricityBillSeeder extends Seeder
                 'validation' => 'required|min:1|max:20',
                 'service_field_data' => new stdClass,
             ],
-            //BREB POSTPAID
+            // BREB POSTPAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'breb_postpaid'])->id,
                 'name' => 'bill_type',
@@ -608,7 +608,7 @@ class ElectricityBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
 
-            //BREB PREPAID
+            // BREB PREPAID
             [
                 'service_id' => Business::service()->findWhere(['service_slug' => 'breb_prepaid'])->id,
                 'name' => 'meter_no',

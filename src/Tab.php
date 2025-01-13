@@ -17,6 +17,6 @@ class Tab
         return \app(AssignVendorService::class);
     }
 
-    //** Crud Service Method Point Do not Remove **//
+    // ** Crud Service Method Point Do not Remove **//
 
 }

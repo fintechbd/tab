@@ -36,7 +36,7 @@ return [
     */
     'pay_bill_model' => PayBill::class,
 
-    //** Model Config Point Do not Remove **//
+    // ** Model Config Point Do not Remove **//
 
     /*
     |--------------------------------------------------------------------------
@@ -73,7 +73,7 @@ return [
     'repositories' => [
         \Fintech\Tab\Interfaces\PayBillRepository::class => PayBillRepository::class,
 
-        //** Repository Binding Config Point Do not Remove **//
+        // ** Repository Binding Config Point Do not Remove **//
     ],
 
 ];

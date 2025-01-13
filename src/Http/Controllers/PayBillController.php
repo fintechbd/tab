@@ -54,10 +54,10 @@ class PayBillController extends Controller
     {
         try {
             $inputs = $request->validated();
-            //$inputs['transaction_form_id'] = Transaction::transactionForm()->findWhere(['code' => 'bill_payment'])->getKey();
+            // $inputs['transaction_form_id'] = Transaction::transactionForm()->findWhere(['code' => 'bill_payment'])->getKey();
             $inputs['transaction_form_code'] = 'bill_payment';
-            //$inputs['service_id'] = Business::serviceType()->list(['service_type_slug'=>'bill_payment']);
-            //$inputs['service_type_slug'] = 'bill_payment';
+            // $inputs['service_id'] = Business::serviceType()->list(['service_type_slug'=>'bill_payment']);
+            // $inputs['service_type_slug'] = 'bill_payment';
             $payBillPaginate = Tab::payBill()->list($inputs);
 
             return new PayBillCollection($payBillPaginate);
@@ -95,7 +95,7 @@ class PayBillController extends Controller
                     throw new Exception('Master User Account not found for '.$request->input('source_country_id', $depositor->profile?->country_id).' country');
                 }
 
-                //set pre defined conditions of deposit
+                // set pre defined conditions of deposit
                 $inputs['transaction_form_id'] = Transaction::transactionForm()->findWhere(['code' => 'bill_payment'])->getKey();
                 $inputs['user_id'] = $user_id ?? $depositor->getKey();
                 $delayCheck = Transaction::order()->transactionDelayCheck($inputs);
@@ -115,7 +115,7 @@ class PayBillController extends Controller
                 $inputs['order_data']['created_by_mobile_number'] = $depositor->mobile;
                 $inputs['order_data']['created_at'] = now();
                 $inputs['order_data']['master_user_name'] = $masterUser['name'];
-                //$inputs['order_data']['operator_short_code'] = $request->input('operator_short_code', null);
+                // $inputs['order_data']['operator_short_code'] = $request->input('operator_short_code', null);
                 $inputs['order_data']['system_notification_variable_success'] = 'bill_payment_success';
                 $inputs['order_data']['system_notification_variable_failed'] = 'bill_payment_failed';
                 $inputs['order_data']['order_type'] = OrderType::BillPayment;
@@ -129,12 +129,12 @@ class PayBillController extends Controller
                 $order_data = $payBill->order_data;
                 $order_data['purchase_number'] = entry_number($payBill->getKey(), $payBill->sourceCountry->iso3, OrderStatus::Successful->value);
                 $order_data['service_stat_data'] = Business::serviceStat()->serviceStateData($payBill);
-                //TODO Need to work negative amount
+                // TODO Need to work negative amount
                 $order_data['user_name'] = $payBill->user->name;
                 $payBill->order_data = $order_data;
                 $userUpdatedBalance = Tab::payBill()->debitTransaction($payBill);
                 $depositedAccount = Transaction::userAccount()->findWhere(['user_id' => $depositor->getKey(), 'country_id' => $payBill->source_country_id]);
-                //update User Account
+                // update User Account
                 $depositedUpdatedAccount = $depositedAccount->toArray();
                 $depositedUpdatedAccount['user_account_data']['spent_amount'] = (float) $depositedUpdatedAccount['user_account_data']['spent_amount'] + (float) $userUpdatedBalance['spent_amount'];
                 $depositedUpdatedAccount['user_account_data']['available_amount'] = (float) $userUpdatedBalance['current_amount'];
@@ -317,7 +317,7 @@ class PayBillController extends Controller
         try {
             $inputs = $request->validated();
 
-            //$payBillPaginate = Tab::payBill()->export($inputs);
+            // $payBillPaginate = Tab::payBill()->export($inputs);
             Tab::payBill()->export($inputs);
 
             return response()->exported(__('core::messages.resource.exported', ['model' => 'Pay Bill']));
