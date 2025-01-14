@@ -19,47 +19,47 @@ class PayBillCollection extends ResourceCollection
     {
         return $this->collection->map(function ($pay_bill) {
             $data = [
-                'id' => $pay_bill->getKey(),
-                'source_country_id' => $pay_bill->source_country_id ?? null,
+                'id' => $payBill->getKey(),
+                'source_country_id' => $payBill->source_country_id ?? null,
                 'source_country_name' => null,
-                'destination_country_id' => $pay_bill->destination_country_id ?? null,
+                'destination_country_id' => $payBill->destination_country_id ?? null,
                 'destination_country_name' => null,
-                'parent_id' => $pay_bill->parent_id ?? null,
-                'sender_receiver_id' => $pay_bill->sender_receiver_id ?? null,
+                'parent_id' => $payBill->parent_id ?? null,
+                'sender_receiver_id' => $payBill->sender_receiver_id ?? null,
                 'sender_receiver_name' => null,
-                'user_id' => $pay_bill->user_id ?? null,
+                'user_id' => $payBill->user_id ?? null,
                 'user_name' => null,
-                'service_id' => $pay_bill->service_id ?? null,
+                'service_id' => $payBill->service_id ?? null,
                 'service_name' => null,
                 'service_type' => null,
-                'transaction_form_id' => $pay_bill->transaction_form_id ?? null,
-                'transaction_form_name' => $pay_bill->transaction_form_name ?? null,
-                'ordered_at' => $pay_bill->ordered_at ?? null,
-                'amount' => $pay_bill->amount ?? null,
-                'currency' => $pay_bill->currency ?? null,
-                'converted_amount' => $pay_bill->converted_amount ?? null,
-                'converted_currency' => $pay_bill->converted_currency ?? null,
-                'order_number' => $pay_bill->order_number ?? null,
-                'risk' => $pay_bill->risk ?? null,
-                'notes' => $pay_bill->notes ?? null,
-                'is_refunded' => $pay_bill->is_refunded ?? null,
-                'order_data' => $pay_bill->order_data ?? null,
-                'status' => $pay_bill->status ?? null,
-            ];
+                'transaction_form_id' => $payBill->transaction_form_id ?? null,
+                'transaction_form_name' => $payBill->transaction_form_name ?? null,
+                'ordered_at' => $payBill->ordered_at ?? null,
+                'amount' => $payBill->amount ?? null,
+                'currency' => $payBill->currency ?? null,
+                'converted_amount' => $payBill->converted_amount ?? null,
+                'converted_currency' => $payBill->converted_currency ?? null,
+                'order_number' => $payBill->order_number ?? null,
+                'risk' => $payBill->risk ?? null,
+                'notes' => $payBill->notes ?? null,
+                'is_refunded' => $payBill->is_refunded ?? null,
+                'order_data' => $payBill->order_data ?? null,
+                'status' => $payBill->status ?? null,
+            ] + $payBill->commonAttributes();
 
             if (Core::packageExists('MetaData')) {
-                $data['source_country_name'] = $pay_bill->sourceCountry?->name ?? null;
-                $data['destination_country_name'] = $pay_bill->destinationCountry?->name ?? null;
+                $data['source_country_name'] = $payBill->sourceCountry?->name ?? null;
+                $data['destination_country_name'] = $payBill->destinationCountry?->name ?? null;
             }
 
             if (Core::packageExists('Auth')) {
-                $data['sender_receiver_name'] = $pay_bill->senderReceiver?->name ?? null;
-                $data['user_name'] = $pay_bill->user?->name ?? null;
+                $data['sender_receiver_name'] = $payBill->senderReceiver?->name ?? null;
+                $data['user_name'] = $payBill->user?->name ?? null;
             }
 
             if (Core::packageExists('Business')) {
-                $data['service_name'] = $pay_bill->service?->service_name ?? null;
-                $data['service_type'] = $pay_bill->service->serviceType?->all_parent_list ?? null;
+                $data['service_name'] = $payBill->service?->service_name ?? null;
+                $data['service_type'] = $payBill->service->serviceType?->all_parent_list ?? null;
             }
 
             return $data;

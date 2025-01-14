@@ -43,7 +43,7 @@ class PayBillResource extends JsonResource
             'is_refunded' => $this->is_refunded ?? null,
             'order_data' => $this->order_data ?? null,
             'status' => $this->status ?? null,
-        ];
+        ] + $this->commonAttributes();
 
         if (Core::packageExists('MetaData')) {
             $data['source_country_name'] = $this->sourceCountry?->name ?? null;
