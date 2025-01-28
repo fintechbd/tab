@@ -12,7 +12,7 @@ return [
     |--------------------------------------------------------------------------
     | This setting enable the API will be available or not
     */
-    'enabled' => env('PACKAGE_TAB_ENABLED', true),
+    'enabled' => env('TAB_ENABLED', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -47,17 +47,17 @@ return [
     */
     'providers' => [
         'sslwireless' => [
-            'mode' => env('PACKAGE_TAB_SSLUTIL_MODE', 'sandbox'),
+            'mode' => env('TAB_SSLUTIL_MODE', 'sandbox'),
             'driver' => Fintech\Tab\Vendors\SSLUtility::class,
             'live' => [
                 'endpoint' => 'https://common-api.sslwireless.com/api',
-                'auth_key' => env('PACKAGE_TAB_SSLUTIL_AUTH_KEY'),
-                'stk_code' => env('PACKAGE_TAB_SSLUTIL_STK_CODE'),
+                'auth_key' => env('TAB_SSLUTIL_AUTH_KEY'),
+                'stk_code' => env('TAB_SSLUTIL_STK_CODE'),
             ],
             'sandbox' => [
                 'endpoint' => 'https://api.sslwireless.com/api',
-                'auth_key' => env('PACKAGE_TAB_SSLUTIL_AUTH_KEY'),
-                'stk_code' => env('PACKAGE_TAB_SSLUTIL_STK_CODE'),
+                'auth_key' => env('TAB_SSLUTIL_AUTH_KEY'),
+                'stk_code' => env('TAB_SSLUTIL_STK_CODE'),
             ],
         ],
     ],
