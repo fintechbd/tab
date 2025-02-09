@@ -35,7 +35,7 @@ class TabServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../config/tab.php' => config_path('fintech/tab.php'),
-        ]);
+        ], 'fintech-tab-config');
 
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
@@ -43,7 +43,7 @@ class TabServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../lang' => $this->app->langPath('vendor/tab'),
-        ]);
+        ], 'fintech-tab-lang');
 
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'tab');
 
@@ -51,7 +51,7 @@ class TabServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/tab'),
-        ]);
+        ], 'fintech-tab-views');
 
         if ($this->app->runningInConsole()) {
             $this->commands([
