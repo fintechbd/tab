@@ -11,7 +11,6 @@ use Fintech\Core\Enums\Transaction\OrderStatus;
 use Fintech\Tab\Exceptions\TabException;
 use Fintech\Tab\Facades\Tab;
 use Fintech\Tab\Http\Requests\PayBillRequest;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
@@ -71,7 +70,7 @@ class CalculateCostController extends Controller
 
             return new ServiceCostResource($exchangeRate);
 
-        }  catch (Exception $exception) {
+        } catch (Exception $exception) {
 
             return response()->failed($exception);
         }
