@@ -71,11 +71,7 @@ class CalculateCostController extends Controller
 
             return new ServiceCostResource($exchangeRate);
 
-        } catch (ModelNotFoundException $exception) {
-
-            return response()->notfound($exception->getMessage());
-
-        } catch (Exception $exception) {
+        }  catch (Exception $exception) {
 
             return response()->failed($exception);
         }
