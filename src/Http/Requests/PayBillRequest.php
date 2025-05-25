@@ -2,7 +2,6 @@
 
 namespace Fintech\Tab\Http\Requests;
 
-use Fintech\Business\Facades\Business;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -33,7 +32,7 @@ class PayBillRequest extends FormRequest
             'pay_bill_data' => ['nullable', 'array'],
         ];
 
-        Business::serviceField()->list([
+        business()->serviceField()->list([
             'service_id' => $this->input('service_id'),
             'paginate' => false,
             'enabled' => true,

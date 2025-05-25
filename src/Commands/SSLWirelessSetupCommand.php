@@ -2,7 +2,6 @@
 
 namespace Fintech\Tab\Commands;
 
-use Fintech\Business\Facades\Business;
 use Fintech\Core\Facades\Core;
 use Illuminate\Console\Command;
 use Throwable;
@@ -67,14 +66,14 @@ class SSLWirelessSetupCommand extends Command
 
         foreach (self::SERVICE_STAT_SETTINGS as $setting) {
 
-            $serviceSetting = Business::serviceSetting()
+            $serviceSetting = business()->serviceSetting()
                 ->list(['service_setting_field_name' => $setting['service_setting_field_name']])->first();
 
             if ($serviceSetting) {
                 continue;
             }
 
-            if ($serviceSetting = Business::serviceSetting()->create($setting)) {
+            if ($serviceSetting = business()->serviceSetting()->create($setting)) {
                 $this->line("Service Setting ID: {$serviceSetting->getKey()} created successful.");
             }
 
@@ -99,10 +98,10 @@ class SSLWirelessSetupCommand extends Command
             'enabled' => false,
         ];
 
-        if (Business::serviceVendor()->findWhere(['service_vendor_slug' => $vendor['service_vendor_slug']])) {
+        if (business()->serviceVendor()->findWhere(['service_vendor_slug' => $vendor['service_vendor_slug']])) {
             $this->info('Service vendor already exists. Skipping');
         } else {
-            Business::serviceVendor()->create($vendor);
+            business()->serviceVendor()->create($vendor);
             $this->info('Service vendor created successfully.');
         }
     }

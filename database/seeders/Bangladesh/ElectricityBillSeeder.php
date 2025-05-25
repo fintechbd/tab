@@ -2,7 +2,6 @@
 
 namespace Fintech\Tab\Seeders\Bangladesh;
 
-use Fintech\Business\Facades\Business;
 use Fintech\Core\Facades\Core;
 use Fintech\MetaData\Facades\MetaData;
 use Illuminate\Database\Seeder;
@@ -17,14 +16,14 @@ class ElectricityBillSeeder extends Seeder
     {
         if (Core::packageExists('Business')) {
 
-            $parent = Business::serviceType()->findWhere(['service_type_slug' => 'electricity']);
+            $parent = business()->serviceType()->findWhere(['service_type_slug' => 'electricity']);
 
             $distCountries = MetaData::country()->servingIds(['iso2' => 'BD']);
 
-            $vendor = Business::serviceVendor()->findWhere(['service_vendor_slug' => 'sslwireless']);
+            $vendor = business()->serviceVendor()->findWhere(['service_vendor_slug' => 'sslwireless']);
 
             foreach ($this->data() as $entry) {
-                Business::serviceTypeManager($entry, $parent)
+                business()->serviceTypeManager($entry, $parent)
                     ->hasService()
                     ->vendor($vendor)
                     ->distCountries($distCountries)
@@ -215,7 +214,7 @@ class ElectricityBillSeeder extends Seeder
         $service_fields = [
             // DESCO POSTPAID
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'desco_postpaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'desco_postpaid'])->id,
                 'name' => 'billno',
                 'label' => 'Bill Number',
                 'type' => 'text',
@@ -230,7 +229,7 @@ class ElectricityBillSeeder extends Seeder
             ],
             // DESCO PREPAID
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'desco_prepaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'desco_prepaid'])->id,
                 'name' => 'account_no',
                 'label' => 'Account No',
                 'type' => 'text',
@@ -244,7 +243,7 @@ class ElectricityBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'desco_prepaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'desco_prepaid'])->id,
                 'name' => 'mobile_no',
                 'label' => 'Mobile No',
                 'type' => 'text',
@@ -258,7 +257,7 @@ class ElectricityBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'desco_prepaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'desco_prepaid'])->id,
                 'name' => 'amount',
                 'label' => 'Amount',
                 'type' => 'text',
@@ -272,7 +271,7 @@ class ElectricityBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'desco_prepaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'desco_prepaid'])->id,
                 'name' => 'bill_type',
                 'label' => 'Bill Type',
                 'type' => 'hidden',
@@ -287,7 +286,7 @@ class ElectricityBillSeeder extends Seeder
             ],
             // DPDC POSTPAID
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'dpdc_postpaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'dpdc_postpaid'])->id,
                 'name' => 'account_no',
                 'label' => 'Account No',
                 'type' => 'text',
@@ -301,7 +300,7 @@ class ElectricityBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'dpdc_postpaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'dpdc_postpaid'])->id,
                 'name' => 'bill_years',
                 'label' => 'Bill Year',
                 'type' => 'select-year',
@@ -317,7 +316,7 @@ class ElectricityBillSeeder extends Seeder
                 ],
             ],
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'dpdc_postpaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'dpdc_postpaid'])->id,
                 'name' => 'bill_months',
                 'label' => 'Bill Month',
                 'type' => 'select',
@@ -344,7 +343,7 @@ class ElectricityBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'dpdc_postpaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'dpdc_postpaid'])->id,
                 'name' => 'pay_channel',
                 'label' => 'Pay Channel',
                 'type' => 'select',
@@ -367,7 +366,7 @@ class ElectricityBillSeeder extends Seeder
             ],
             // DPDC PREPAID
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'dpdc_prepaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'dpdc_prepaid'])->id,
                 'name' => 'customer_no',
                 'label' => 'Account No',
                 'type' => 'text',
@@ -381,7 +380,7 @@ class ElectricityBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'dpdc_prepaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'dpdc_prepaid'])->id,
                 'name' => 'mobile_no',
                 'label' => 'Mobile No',
                 'type' => 'text',
@@ -395,7 +394,7 @@ class ElectricityBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'dpdc_prepaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'dpdc_prepaid'])->id,
                 'name' => 'amount',
                 'label' => 'Amount',
                 'type' => 'text',
@@ -410,7 +409,7 @@ class ElectricityBillSeeder extends Seeder
             ],
             // NESCO POSTPAID
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'nesco_postpaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'nesco_postpaid'])->id,
                 'name' => 'bill_number',
                 'label' => 'Bill Number',
                 'type' => 'text',
@@ -425,7 +424,7 @@ class ElectricityBillSeeder extends Seeder
             ],
             // NESCO PREPAID
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'nesco_prepaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'nesco_prepaid'])->id,
                 'name' => 'account_number',
                 'label' => 'Customer Number',
                 'type' => 'text',
@@ -439,7 +438,7 @@ class ElectricityBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'nesco_prepaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'nesco_prepaid'])->id,
                 'name' => 'amount',
                 'label' => 'Recharge Amount',
                 'type' => 'text',
@@ -454,7 +453,7 @@ class ElectricityBillSeeder extends Seeder
             ],
             // WEST ZONE POSTPAID
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'west_zone_postpaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'west_zone_postpaid'])->id,
                 'name' => 'account_number',
                 'label' => 'Account Number',
                 'type' => 'text',
@@ -469,7 +468,7 @@ class ElectricityBillSeeder extends Seeder
             ],
             // WEST ZONE PREPAID
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'west_zone_prepaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'west_zone_prepaid'])->id,
                 'name' => 'account_number',
                 'label' => 'Account Number',
                 'type' => 'text',
@@ -484,7 +483,7 @@ class ElectricityBillSeeder extends Seeder
             ],
             // BPDB PREPAID
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'bpdb_prepaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'bpdb_prepaid'])->id,
                 'name' => 'meter_no',
                 'label' => 'Meter Number',
                 'type' => 'text',
@@ -498,7 +497,7 @@ class ElectricityBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'bpdb_prepaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'bpdb_prepaid'])->id,
                 'name' => 'mobile_no',
                 'label' => 'Mobile Number',
                 'type' => 'text',
@@ -512,7 +511,7 @@ class ElectricityBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'bpdb_prepaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'bpdb_prepaid'])->id,
                 'name' => 'amount',
                 'label' => 'Amount',
                 'type' => 'number',
@@ -528,7 +527,7 @@ class ElectricityBillSeeder extends Seeder
                 ],
             ],
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'bpdb_prepaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'bpdb_prepaid'])->id,
                 'name' => 'bill_type',
                 'label' => 'Bill Type',
                 'type' => 'select',
@@ -546,7 +545,7 @@ class ElectricityBillSeeder extends Seeder
             ],
             // BREB POSTPAID
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'breb_postpaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'breb_postpaid'])->id,
                 'name' => 'bill_type',
                 'label' => 'Bill Type',
                 'type' => 'text',
@@ -560,7 +559,7 @@ class ElectricityBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'breb_postpaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'breb_postpaid'])->id,
                 'name' => 'account_no',
                 'label' => 'Account No',
                 'type' => 'text',
@@ -574,7 +573,7 @@ class ElectricityBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'breb_postpaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'breb_postpaid'])->id,
                 'name' => 'type_of_bill',
                 'label' => 'BREB Bill Type',
                 'type' => 'select',
@@ -594,7 +593,7 @@ class ElectricityBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'breb_postpaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'breb_postpaid'])->id,
                 'name' => 'branchRoutingNo',
                 'label' => 'Branch Routing No',
                 'type' => 'hidden',
@@ -610,7 +609,7 @@ class ElectricityBillSeeder extends Seeder
 
             // BREB PREPAID
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'breb_prepaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'breb_prepaid'])->id,
                 'name' => 'meter_no',
                 'label' => 'Meter Number',
                 'type' => 'text',
@@ -624,7 +623,7 @@ class ElectricityBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'breb_prepaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'breb_prepaid'])->id,
                 'name' => 'mobile_no',
                 'label' => 'Mobile Number',
                 'type' => 'text',
@@ -638,7 +637,7 @@ class ElectricityBillSeeder extends Seeder
                 'service_field_data' => new stdClass,
             ],
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'breb_prepaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'breb_prepaid'])->id,
                 'name' => 'amount',
                 'label' => 'Amount',
                 'type' => 'number',
@@ -654,7 +653,7 @@ class ElectricityBillSeeder extends Seeder
                 ],
             ],
             [
-                'service_id' => Business::service()->findWhere(['service_slug' => 'breb_prepaid'])->id,
+                'service_id' => business()->service()->findWhere(['service_slug' => 'breb_prepaid'])->id,
                 'name' => 'bill_type',
                 'label' => 'Bill Type',
                 'type' => 'select',
@@ -673,7 +672,7 @@ class ElectricityBillSeeder extends Seeder
         ];
 
         foreach ($service_fields as $service_field) {
-            Business::serviceField()->create($service_field);
+            business()->serviceField()->create($service_field);
         }
     }
 }

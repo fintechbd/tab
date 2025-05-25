@@ -4,7 +4,6 @@ namespace Fintech\Tab\Http\Controllers;
 
 use Exception;
 use Fintech\Auth\Facades\Auth;
-use Fintech\Business\Facades\Business;
 use Fintech\Core\Enums\Auth\RiskProfile;
 use Fintech\Core\Enums\Auth\SystemRole;
 use Fintech\Core\Enums\Transaction\OrderStatus;
@@ -13,7 +12,6 @@ use Fintech\Core\Exceptions\DeleteOperationException;
 use Fintech\Core\Exceptions\RestoreOperationException;
 use Fintech\Core\Exceptions\StoreOperationException;
 use Fintech\Core\Exceptions\UpdateOperationException;
-use Fintech\Tab\Facades\Tab;
 use Fintech\Tab\Http\Requests\ImportPayBillRequest;
 use Fintech\Tab\Http\Requests\IndexPayBillRequest;
 use Fintech\Tab\Http\Requests\StorePayBillRequest;
@@ -49,11 +47,11 @@ class PayBillController extends Controller
     {
         try {
             $inputs = $request->validated();
-            // $inputs['transaction_form_id'] = Transaction::transactionForm()->findWhere(['code' => 'bill_payment'])->getKey();
+            // $inputs['transaction_form_id'] =transaction()->transactionForm()->findWhere(['code' => 'bill_payment'])->getKey();
             $inputs['transaction_form_code'] = 'bill_payment';
-            // $inputs['service_id'] = Business::serviceType()->list(['service_type_slug'=>'bill_payment']);
+            // $inputs['service_id'] = business()->serviceType()->list(['service_type_slug'=>'bill_payment']);
             // $inputs['service_type_slug'] = 'bill_payment';
-            $payBillPaginate = Tab::payBill()->list($inputs);
+            $payBillPaginate = tab()->payBill()->list($inputs);
 
             return new PayBillCollection($payBillPaginate);
 
@@ -78,7 +76,7 @@ class PayBillController extends Controller
             }
             $depositor = $request->user('sanctum');
             if (Transaction::orderQueue()->addToQueueUserWise(($user_id ?? $depositor->getKey())) > 0) {
-                $depositAccount = Transaction::userAccount()->findWhere(['user_id' => $user_id ?? $depositor->getKey(), 'country_id' => $request->input('source_country_id', $depositor->profile?->country_id)]);
+                $depositAccount = transaction()->userAccount()->findWhere(['user_id' => $user_id ?? $depositor->getKey(), 'country_id' => $request->input('source_country_id', $depositor->profile?->country_id)]);
 
                 if (! $depositAccount) {
                     throw new Exception("User don't have account deposit balance");
@@ -91,9 +89,9 @@ class PayBillController extends Controller
                 }
 
                 // set pre defined conditions of deposit
-                $inputs['transaction_form_id'] = Transaction::transactionForm()->findWhere(['code' => 'bill_payment'])->getKey();
+                $inputs['transaction_form_id'] = transaction()->transactionForm()->findWhere(['code' => 'bill_payment'])->getKey();
                 $inputs['user_id'] = $user_id ?? $depositor->getKey();
-                $delayCheck = Transaction::order()->transactionDelayCheck($inputs);
+                $delayCheck = transaction()->order()->transactionDelayCheck($inputs);
                 if ($delayCheck['countValue'] > 0) {
                     throw new Exception('Your Request For This Amount Is Already Submitted. Please Wait For Update');
                 }
@@ -102,7 +100,7 @@ class PayBillController extends Controller
                 $inputs['status'] = OrderStatus::Pending->value;
                 $inputs['risk'] = RiskProfile::Low->value;
                 $inputs['reverse'] = true;
-                $inputs['order_data']['currency_convert_rate'] = Business::currencyRate()->convert($inputs);
+                $inputs['order_data']['currency_convert_rate'] = business()->currencyRate()->convert($inputs);
                 unset($inputs['reverse']);
                 $inputs['converted_amount'] = $inputs['order_data']['currency_convert_rate']['converted'];
                 $inputs['converted_currency'] = $inputs['order_data']['currency_convert_rate']['output'];
@@ -116,19 +114,19 @@ class PayBillController extends Controller
                 $inputs['order_data']['order_type'] = OrderType::BillPayment;
                 unset($inputs['pin'], $inputs['password']);
 
-                $payBill = Tab::payBill()->create($inputs);
+                $payBill = tab()->payBill()->create($inputs);
 
                 if (! $payBill) {
                     throw (new StoreOperationException)->setModel(config('fintech.tab.pay_bill_model'));
                 }
                 $order_data = $payBill->order_data;
                 $order_data['purchase_number'] = entry_number($payBill->getKey(), $payBill->sourceCountry->iso3, OrderStatus::Successful->value);
-                $order_data['service_stat_data'] = Business::serviceStat()->serviceStateData($payBill);
+                $order_data['service_stat_data'] = business()->serviceStat()->serviceStateData($payBill);
                 // TODO Need to work negative amount
                 $order_data['user_name'] = $payBill->user->name;
                 $payBill->order_data = $order_data;
-                $userUpdatedBalance = Tab::payBill()->debitTransaction($payBill);
-                $depositedAccount = Transaction::userAccount()->findWhere(['user_id' => $depositor->getKey(), 'country_id' => $payBill->source_country_id]);
+                $userUpdatedBalance = tab()->payBill()->debitTransaction($payBill);
+                $depositedAccount = transaction()->userAccount()->findWhere(['user_id' => $depositor->getKey(), 'country_id' => $payBill->source_country_id]);
                 // update User Account
                 $depositedUpdatedAccount = $depositedAccount->toArray();
                 $depositedUpdatedAccount['user_account_data']['spent_amount'] = (float) $depositedUpdatedAccount['user_account_data']['spent_amount'] + (float) $userUpdatedBalance['spent_amount'];
@@ -141,14 +139,14 @@ class PayBillController extends Controller
                 }
                 $order_data['order_data']['previous_amount'] = (float) $depositedAccount->user_account_data['available_amount'];
                 $order_data['order_data']['current_amount'] = (float) $userUpdatedBalance['current_amount'];
-                if (! Transaction::userAccount()->update($depositedAccount->getKey(), $depositedUpdatedAccount)) {
+                if (!transaction()->userAccount()->update($depositedAccount->getKey(), $depositedUpdatedAccount)) {
                     throw new Exception(__('User Account Balance does not update', [
                         'previous_amount' => ((float) $depositedUpdatedAccount['user_account_data']['available_amount']),
                         'current_amount' => ((float) $userUpdatedBalance['spent_amount']),
                     ]));
                 }
-                Tab::payBill()->update($payBill->getKey(), ['order_data' => $order_data, 'order_number' => $order_data['purchase_number']]);
-                Transaction::orderQueue()->removeFromQueueUserWise($user_id ?? $depositor->getKey());
+                tab()->payBill()->update($payBill->getKey(), ['order_data' => $order_data, 'order_number' => $order_data['purchase_number']]);
+                transaction()->orderQueue()->removeFromQueueUserWise($user_id ?? $depositor->getKey());
                 DB::commit();
 
                 return response()->created([
@@ -161,7 +159,7 @@ class PayBillController extends Controller
                 throw new Exception('Your another order is in process...!');
             }
         } catch (Exception $exception) {
-            Transaction::orderQueue()->removeFromQueueUserWise($user_id ?? $depositor->getKey());
+            transaction()->orderQueue()->removeFromQueueUserWise($user_id ?? $depositor->getKey());
             DB::rollBack();
 
             return response()->failed($exception);
@@ -178,7 +176,7 @@ class PayBillController extends Controller
     {
         try {
 
-            $payBill = Tab::payBill()->find($id);
+            $payBill = tab()->payBill()->find($id);
 
             if (! $payBill) {
                 throw (new ModelNotFoundException)->setModel(config('fintech.tab.pay_bill_model'), $id);
@@ -186,7 +184,7 @@ class PayBillController extends Controller
 
             $inputs = $request->validated();
 
-            if (! Tab::payBill()->update($id, $inputs)) {
+            if (!tab()->payBill()->update($id, $inputs)) {
 
                 throw (new UpdateOperationException)->setModel(config('fintech.tab.pay_bill_model'), $id);
             }
@@ -211,7 +209,7 @@ class PayBillController extends Controller
     {
         try {
 
-            $payBill = Tab::payBill()->find($id);
+            $payBill = tab()->payBill()->find($id);
 
             if (! $payBill) {
                 throw (new ModelNotFoundException)->setModel(config('fintech.tab.pay_bill_model'), $id);
@@ -235,13 +233,13 @@ class PayBillController extends Controller
     {
         try {
 
-            $payBill = Tab::payBill()->find($id);
+            $payBill = tab()->payBill()->find($id);
 
             if (! $payBill) {
                 throw (new ModelNotFoundException)->setModel(config('fintech.tab.pay_bill_model'), $id);
             }
 
-            if (! Tab::payBill()->destroy($id)) {
+            if (!tab()->payBill()->destroy($id)) {
 
                 throw (new DeleteOperationException)->setModel(config('fintech.tab.pay_bill_model'), $id);
             }
@@ -265,13 +263,13 @@ class PayBillController extends Controller
     {
         try {
 
-            $payBill = Tab::payBill()->find($id, true);
+            $payBill = tab()->payBill()->find($id, true);
 
             if (! $payBill) {
                 throw (new ModelNotFoundException)->setModel(config('fintech.tab.pay_bill_model'), $id);
             }
 
-            if (! Tab::payBill()->restore($id)) {
+            if (!tab()->payBill()->restore($id)) {
 
                 throw (new RestoreOperationException)->setModel(config('fintech.tab.pay_bill_model'), $id);
             }
@@ -296,8 +294,8 @@ class PayBillController extends Controller
         try {
             $inputs = $request->validated();
 
-            // $payBillPaginate = Tab::payBill()->export($inputs);
-            Tab::payBill()->export($inputs);
+            // $payBillPaginate =tab()->payBill()->export($inputs);
+            tab()->payBill()->export($inputs);
 
             return response()->exported(__('core::messages.resource.exported', ['model' => 'Pay Bill']));
 
@@ -319,7 +317,7 @@ class PayBillController extends Controller
         try {
             $inputs = $request->validated();
 
-            $payBillPaginate = Tab::payBill()->list($inputs);
+            $payBillPaginate = tab()->payBill()->list($inputs);
 
             return new PayBillCollection($payBillPaginate);
 

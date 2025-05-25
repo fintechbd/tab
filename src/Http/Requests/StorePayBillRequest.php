@@ -2,7 +2,6 @@
 
 namespace Fintech\Tab\Http\Requests;
 
-use Fintech\Business\Facades\Business;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -37,7 +36,7 @@ class StorePayBillRequest extends FormRequest
             'order_data.role_id' => ['integer', 'nullable', 'min:1'],
         ];
 
-        Business::serviceField()->list([
+        business()->serviceField()->list([
             'paginate' => false,
             'service_id' => $this->service_id,
         ])->each(function ($serviceField) use (&$rules) {

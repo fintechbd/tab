@@ -3,7 +3,6 @@
 namespace Fintech\Tab\Vendors;
 
 use ErrorException;
-use Fintech\Business\Facades\Business;
 use Fintech\Core\Abstracts\BaseModel;
 use Fintech\Tab\Contracts\BillPayment;
 use Illuminate\Http\Client\PendingRequest;
@@ -70,7 +69,7 @@ class SSLUtility implements BillPayment
         $params['utility_auth_key'] = '';
         $params['utility_secret_key'] = '';
 
-        $serviceStat = Business::serviceStat()->list([
+        $serviceStat = business()->serviceStat()->list([
             'role_id' => $order->order_data['service_stat_data']['role_id'],
             'service_id' => $order->order_data['service_stat_data']['service_id'],
             'source_country_id' => $order->order_data['service_stat_data']['source_country_id'],

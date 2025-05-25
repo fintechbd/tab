@@ -3,14 +3,12 @@
 namespace Fintech\Tab\Services;
 
 use ErrorException;
-use Fintech\Business\Facades\Business;
 use Fintech\Core\Abstracts\BaseModel;
 use Fintech\Core\Enums\Transaction\OrderStatus;
 use Fintech\Core\Exceptions\UpdateOperationException;
 use Fintech\Core\Exceptions\VendorNotFoundException;
 use Fintech\Tab\Contracts\BillPayment;
 use Fintech\Tab\Exceptions\TabException;
-use Fintech\Transaction\Facades\Transaction;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\App;
 
@@ -43,7 +41,7 @@ class AssignVendorService
             throw new VendorNotFoundException(ucfirst($slug));
         }
 
-        $this->serviceVendorModel = Business::serviceVendor()->findWhere(['service_vendor_slug' => $slug, 'enabled' => true]);
+        $this->serviceVendorModel = business()->serviceVendor()->findWhere(['service_vendor_slug' => $slug, 'enabled' => true]);
 
         if (! $this->serviceVendorModel) {
             throw (new ModelNotFoundException)->setModel(config('fintech.business.service_vendor_model'), $slug);
@@ -60,7 +58,7 @@ class AssignVendorService
     {
         $this->initiateVendor($vendor_slug);
 
-        if (! Transaction::order()->update($order->getKey(), [
+        if (!transaction()->order()->update($order->getKey(), [
             'vendor' => $vendor_slug,
             'service_vendor_id' => $this->serviceVendorModel->getKey(),
             'status' => OrderStatus::Processing->value])) {

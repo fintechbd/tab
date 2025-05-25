@@ -4,12 +4,10 @@ namespace Fintech\Tab\Http\Controllers;
 
 use Exception;
 use Fintech\Auth\Facades\Auth;
-use Fintech\Business\Facades\Business;
 use Fintech\Business\Http\Resources\ServiceCostResource;
 use Fintech\Core\Abstracts\BaseModel;
 use Fintech\Core\Enums\Transaction\OrderStatus;
 use Fintech\Tab\Exceptions\TabException;
-use Fintech\Tab\Facades\Tab;
 use Fintech\Tab\Http\Requests\PayBillRequest;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
@@ -34,9 +32,9 @@ class CalculateCostController extends Controller
                 $inputs['role_id'] = $user->roles->first()?->getKey() ?? null;
             }
 
-            $service = Business::service()->find($inputs['service_id']);
+            $service = business()->service()->find($inputs['service_id']);
 
-            $vendor = Business::serviceVendor()->find($service->service_vendor_id);
+            $vendor = business()->serviceVendor()->find($service->service_vendor_id);
 
             $inputs['service_vendor_id'] = $vendor?->getKey() ?? null;
 
@@ -56,7 +54,7 @@ class CalculateCostController extends Controller
             $quote->order_number = 'CANPB'.Str::padLeft(time(), 15, '0');
             $quote->is_refunded = 'no';
 
-            $quoteInfo = Tab::assignVendor()->requestQuote($quote);
+            $quoteInfo = tab()->assignVendor()->requestQuote($quote);
 
             if ($quoteInfo['status'] === false) {
                 throw new TabException(__('core::messages.assign_vendor.quote_failed'));
@@ -64,7 +62,7 @@ class CalculateCostController extends Controller
 
             $inputs['amount'] = $quoteInfo['amount'];
 
-            $exchangeRate = Business::serviceStat()->cost($inputs);
+            $exchangeRate = business()->serviceStat()->cost($inputs);
 
             $exchangeRate['vendor_info'] = $quoteInfo;
 

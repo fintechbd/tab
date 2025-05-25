@@ -2,7 +2,6 @@
 
 namespace Fintech\Tab\Commands;
 
-use Fintech\Business\Facades\Business;
 use Fintech\Core\Traits\HasCoreSetting;
 use Illuminate\Console\Command;
 
@@ -47,7 +46,7 @@ class InstallCommand extends Command
                 'service_type_is_description' => 'no',
                 'service_type_step' => '1',
             ];
-            Business::serviceTypeManager($entry)
+            business()->serviceTypeManager($entry)
                 ->hasTransactionForm()
                 ->disabled()
                 ->execute();
@@ -57,7 +56,7 @@ class InstallCommand extends Command
     private function addTabSubServices(): void
     {
         $this->task('Populating Bill Payment Sub-Service Types', function () {
-            $parentId = Business::serviceType()->findWhere(['service_type_slug' => 'bill_payment'])->id;
+            $parentId = business()->serviceType()->findWhere(['service_type_slug' => 'bill_payment'])->id;
             $types = [
                 [
                     'service_type_name' => 'Electricity',
@@ -132,7 +131,7 @@ class InstallCommand extends Command
 
             ];
             foreach ($types as $entry) {
-                Business::serviceTypeManager($entry, $parentId)->enabled()->execute();
+                business()->serviceTypeManager($entry, $parentId)->enabled()->execute();
             }
         });
     }
