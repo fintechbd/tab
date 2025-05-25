@@ -139,7 +139,7 @@ class PayBillController extends Controller
                 }
                 $order_data['order_data']['previous_amount'] = (float) $depositedAccount->user_account_data['available_amount'];
                 $order_data['order_data']['current_amount'] = (float) $userUpdatedBalance['current_amount'];
-                if (!transaction()->userAccount()->update($depositedAccount->getKey(), $depositedUpdatedAccount)) {
+                if (! transaction()->userAccount()->update($depositedAccount->getKey(), $depositedUpdatedAccount)) {
                     throw new Exception(__('User Account Balance does not update', [
                         'previous_amount' => ((float) $depositedUpdatedAccount['user_account_data']['available_amount']),
                         'current_amount' => ((float) $userUpdatedBalance['spent_amount']),
@@ -184,7 +184,7 @@ class PayBillController extends Controller
 
             $inputs = $request->validated();
 
-            if (!tab()->payBill()->update($id, $inputs)) {
+            if (! tab()->payBill()->update($id, $inputs)) {
 
                 throw (new UpdateOperationException)->setModel(config('fintech.tab.pay_bill_model'), $id);
             }
@@ -239,7 +239,7 @@ class PayBillController extends Controller
                 throw (new ModelNotFoundException)->setModel(config('fintech.tab.pay_bill_model'), $id);
             }
 
-            if (!tab()->payBill()->destroy($id)) {
+            if (! tab()->payBill()->destroy($id)) {
 
                 throw (new DeleteOperationException)->setModel(config('fintech.tab.pay_bill_model'), $id);
             }
@@ -269,7 +269,7 @@ class PayBillController extends Controller
                 throw (new ModelNotFoundException)->setModel(config('fintech.tab.pay_bill_model'), $id);
             }
 
-            if (!tab()->payBill()->restore($id)) {
+            if (! tab()->payBill()->restore($id)) {
 
                 throw (new RestoreOperationException)->setModel(config('fintech.tab.pay_bill_model'), $id);
             }

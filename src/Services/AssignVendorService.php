@@ -58,7 +58,7 @@ class AssignVendorService
     {
         $this->initiateVendor($vendor_slug);
 
-        if (!transaction()->order()->update($order->getKey(), [
+        if (! transaction()->order()->update($order->getKey(), [
             'vendor' => $vendor_slug,
             'service_vendor_id' => $this->serviceVendorModel->getKey(),
             'status' => OrderStatus::Processing->value])) {
